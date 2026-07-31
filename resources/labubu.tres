@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="ItemResource" format=3 uid="uid://bn1d4i18srwcl"]
+
+[ext_resource type="Script" uid="uid://cyf51v3ywt1uc" path="res://item_resource.gd" id="1_gvtiy"]
+[ext_resource type="Texture2D" uid="uid://6mg1lo7mypea" path="res://assets/images/prizes/labubu.png" id="1_l4el7"]
+
+[resource]
+script = ExtResource("1_gvtiy")
+item_name = "Labubu"
+item_desc = "its a very cool and rare labubu"
+item_texture = ExtResource("1_l4el7")
+metadata/_custom_type_script = "uid://cyf51v3ywt1uc"

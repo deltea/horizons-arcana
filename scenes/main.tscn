@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://dxvucuocytgcv" path="res://assets/models/table.blend" id="4_jyhfs"]
 [ext_resource type="Material" uid="uid://de18xmp3o6jut" path="res://assets/materials/wall.tres" id="4_tbgi4"]
 [ext_resource type="PackedScene" uid="uid://dd5m3oymlmny4" path="res://scenes/bin/bin.tscn" id="7_o6xl0"]
+[ext_resource type="Texture2D" uid="uid://bjl0lc5bw5nxj" path="res://assets/images/plant.png" id="7_tipki"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_o5qli"]
 sky_top_color = Color(0.13333334, 0.8980392, 0.81960785, 1)
@@ -25,6 +26,11 @@ size = Vector2(1000, 1000)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jyhfs"]
 albedo_color = Color(0.14901961, 0.5137255, 0.65882355, 1)
+
+[sub_resource type="SystemFont" id="SystemFont_o6xl0"]
+font_names = PackedStringArray("Quicksand")
+font_weight = 999
+hinting = 0
 
 [node name="Main" type="Node3D" unique_id=1625054645]
 script = ExtResource("1_sugp2")
@@ -95,41 +101,42 @@ transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 1
 size = Vector3(1, 20, 20)
 material = ExtResource("4_tbgi4")
 
-[node name="CSGBox3D" type="CSGBox3D" parent="Node3D/CSGCombiner3D" unique_id=1588760493]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 11, 2)
-operation = 2
-size = Vector3(1, 4, 4)
-material = ExtResource("4_tbgi4")
-
-[node name="CSGBox3D2" type="CSGBox3D" parent="Node3D/CSGCombiner3D" unique_id=2122333348]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 11, 2)
-operation = 2
-size = Vector3(1, 4, 4)
-material = ExtResource("4_tbgi4")
-
 [node name="CSGBox3D3" type="CSGBox3D" parent="Node3D/CSGCombiner3D" unique_id=136787409]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -2.5, 12.5, -5)
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -2.5, 15.5, -5)
 operation = 2
 size = Vector3(2, 4, 4)
 material = ExtResource("4_tbgi4")
 
 [node name="CSGBox3D4" type="CSGBox3D" parent="Node3D/CSGCombiner3D" unique_id=1343169354]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 2.5, 12.5, -5)
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 2.5, 15.5, -5)
 operation = 2
 size = Vector3(2, 4, 4)
 material = ExtResource("4_tbgi4")
 
 [node name="CSGBox3D5" type="CSGBox3D" parent="Node3D/CSGCombiner3D" unique_id=1925533516]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 2.6999998, 8, -5)
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 2.6999998, 11, -5)
 operation = 2
 size = Vector3(2, 4, 4)
 material = ExtResource("4_tbgi4")
 
 [node name="CSGBox3D6" type="CSGBox3D" parent="Node3D/CSGCombiner3D" unique_id=1019865305]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -2.5, 8, -5)
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -2.5, 11, -5)
 operation = 2
 size = Vector3(2, 4, 4)
 material = ExtResource("4_tbgi4")
 
 [node name="TrashBin" parent="." unique_id=1129805525 instance=ExtResource("7_o6xl0")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, 0)
+
+[node name="DayLabel" type="Label3D" parent="." unique_id=754942907]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 10, 0)
+text = "DAY 9"
+font = SubResource("SystemFont_o6xl0")
+font_size = 360
+outline_size = 0
+
+[node name="Sprite3D" type="Sprite3D" parent="." unique_id=65722358]
+transform = Transform3D(0.8660254, 0, 0.5, 0, 1, 0, -0.5, 0, 0.8660254, -6, 4.9, -2.7)
+pixel_size = 0.04
+texture_filter = 0
+texture = ExtResource("7_tipki")

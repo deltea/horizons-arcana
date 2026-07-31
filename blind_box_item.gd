@@ -38,8 +38,8 @@ func animate_in() -> void:
 func throw_in_bin(bin: Bin) -> void:
 	wobble_tween.stop()
 	is_thrown = true
-	var tween := create_tween().set_trans(Tween.TRANS_EXPO).set_ease(Tween.EASE_IN).set_parallel()
+	var tween := create_tween().set_trans(Tween.TRANS_EXPO).set_ease(Tween.EASE_OUT).set_parallel()
 	# tween.tween_property(self, "global_position", bin.global_position + Vector3.UP * 3.0, 1.0)
 	tween.tween_property(star_sprite, "scale", Vector3.ZERO, 0.5)
-	tween.tween_property(item_sprite, "scale", Vector3.ZERO, 0.5).set_delay(0.25)
+	tween.tween_property(item_sprite, "scale", Vector3.ZERO, 0.5)
 	tween.tween_property(money_sprite, "scale", Vector3.ONE, 0.5)
