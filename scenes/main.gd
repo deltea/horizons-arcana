@@ -20,17 +20,20 @@ const blind_box_scene = preload("res://scenes/blind_box/blind_box.tscn")
 @onready var trash_can: Sprite3D = $Turntable/TrashCan
 @onready var hand: Sprite3D = $Turntable/Hand
 @onready var spotlight: TextureRect = $CanvasLayer/Spotlight
+@onready var earnings_label: Label3D = $Turntable/EarningsLabel
 
 var curr_day: int = -1
 var hand_tween: Tween
 var boxes: Array[int] = []
 var boxes_left: int = 0
+var daily_earnings: int = 0
 
 
 func _ready() -> void:
 	Events.hand_extend.connect(_on_hand_extend)
 	Events.hand_retract.connect(_on_hand_retract)
 	Events.hand_grab.connect(_on_hand_grab)
+	Events.box_cashed_out.connect(_on_box_cashed_out)
 
 	next_day()
 
@@ -91,6 +94,11 @@ func _on_hand_retract() -> void:
 func _on_hand_grab() -> void:
 	hand.texture = hand_closed_texture
 	Events.cam_shake.emit(0.4)
+
+
+func _on_box_cashed_out(amount: int) -> void:
+	daily_earnings += amount
+	earnings_label.text = "Daily Earnings:\n$" + str(daily_earnings)
 
 
 func _input(event: InputEvent) -> void:

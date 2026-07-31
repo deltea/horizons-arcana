@@ -11,6 +11,7 @@ signal input_close()
 signal box_opened(is_bomb: bool)
 signal box_resolved()
 signal box_trashed()
+signal box_cashed_out(amount: int)
 
 signal cam_shake(amount: float)
 signal cam_toggle_intense(value: bool)
