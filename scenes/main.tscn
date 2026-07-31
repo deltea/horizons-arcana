@@ -1,3 +1,98 @@
 [gd_scene format=3 uid="uid://cdstqk8mh53j6"]
 
+[ext_resource type="PackedScene" uid="uid://gmlodv1asivx" path="res://scenes/camera/camera.tscn" id="1_o5qli"]
+[ext_resource type="Script" uid="uid://cs4engja8c3dt" path="res://scenes/main.gd" id="1_sugp2"]
+[ext_resource type="Texture2D" uid="uid://vlkkts0a2sd4" path="res://assets/images/progress_bar_progress.png" id="2_tefeu"]
+[ext_resource type="PackedScene" uid="uid://dxvucuocytgcv" path="res://assets/models/table.blend" id="4_jyhfs"]
+[ext_resource type="Material" uid="uid://de18xmp3o6jut" path="res://assets/materials/wall.tres" id="4_tbgi4"]
+[ext_resource type="PackedScene" uid="uid://1gkhlwxhifhg" path="res://assets/models/trash_can.blend" id="5_tbgi4"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_o5qli"]
+sky_top_color = Color(0.99607843, 0.972549, 0.9098039, 1)
+sky_horizon_color = Color(0.14901961, 0.5137255, 0.65882355, 1)
+ground_bottom_color = Color(0.14901961, 0.5137255, 0.65882355, 1)
+ground_horizon_color = Color(0.14901961, 0.5137255, 0.65882355, 1)
+
+[sub_resource type="Sky" id="Sky_sgp6g"]
+sky_material = SubResource("ProceduralSkyMaterial_o5qli")
+
+[sub_resource type="Environment" id="Environment_38or4"]
+background_mode = 2
+sky = SubResource("Sky_sgp6g")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_tefeu"]
+size = Vector2(1000, 1000)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jyhfs"]
+albedo_color = Color(0.14901961, 0.5137255, 0.65882355, 1)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_tbgi4"]
+material = ExtResource("4_tbgi4")
+size = Vector2(20, 20)
+
 [node name="Main" type="Node3D" unique_id=1625054645]
+script = ExtResource("1_sugp2")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=828132484]
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer" unique_id=756699139]
+offset_right = 960.0
+offset_bottom = 128.0
+theme_override_constants/margin_left = 32
+theme_override_constants/margin_top = 32
+theme_override_constants/margin_right = 32
+theme_override_constants/margin_bottom = 32
+
+[node name="InspectingProgressBar" type="TextureProgressBar" parent="CanvasLayer/MarginContainer" unique_id=1175414776]
+layout_mode = 2
+max_value = 1.0
+step = 0.01
+nine_patch_stretch = true
+stretch_margin_left = 16
+stretch_margin_top = 16
+stretch_margin_right = 16
+stretch_margin_bottom = 16
+texture_progress = ExtResource("2_tefeu")
+
+[node name="OpeningProgressBar" type="TextureProgressBar" parent="CanvasLayer/MarginContainer" unique_id=508630100]
+layout_mode = 2
+max_value = 1.0
+step = 0.01
+nine_patch_stretch = true
+stretch_margin_left = 16
+stretch_margin_top = 16
+stretch_margin_right = 16
+stretch_margin_bottom = 16
+texture_progress = ExtResource("2_tefeu")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=109655450]
+environment = SubResource("Environment_38or4")
+
+[node name="Camera3D" parent="." unique_id=1882948444 instance=ExtResource("1_o5qli")]
+transform = Transform3D(1, 0, 0, 0, 0.9659259, 0.25881907, 0, -0.25881907, 0.9659258, 0, 8, 8)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=2081149665]
+transform = Transform3D(0.70710677, 0.5, -0.50000006, 0, 0.7071068, 0.70710677, 0.7071068, -0.49999997, 0.5, 0, 15, 0)
+
+[node name="Floor" type="MeshInstance3D" parent="." unique_id=1055983602]
+mesh = SubResource("PlaneMesh_tefeu")
+surface_material_override/0 = SubResource("StandardMaterial3D_jyhfs")
+
+[node name="table" parent="." unique_id=71494229 instance=ExtResource("4_jyhfs")]
+
+[node name="Node3D" type="Node3D" parent="." unique_id=173836446]
+
+[node name="Wall" type="MeshInstance3D" parent="Node3D" unique_id=321382076]
+transform = Transform3D(-4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0, 1, -10, 10, 0)
+mesh = SubResource("PlaneMesh_tbgi4")
+
+[node name="Wall2" type="MeshInstance3D" parent="Node3D" unique_id=1014884379]
+transform = Transform3D(1.9106855e-15, -4.371139e-08, -1, -1, -4.371139e-08, 0, -4.371139e-08, 1, -4.371139e-08, 0, 10, -5)
+mesh = SubResource("PlaneMesh_tbgi4")
+
+[node name="Wall3" type="MeshInstance3D" parent="Node3D" unique_id=1566032215]
+transform = Transform3D(4.371139e-08, -1, 8.742278e-08, -1, -4.371139e-08, 0, 3.821371e-15, -8.742278e-08, -1, 10, 10, 0)
+mesh = SubResource("PlaneMesh_tbgi4")
+
+[node name="trash_can" parent="." unique_id=1332370541 instance=ExtResource("5_tbgi4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.9, 0, 1)

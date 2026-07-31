@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://dig7hovvtb2yx"]
+
+[ext_resource type="Script" uid="uid://14ujhky81nv0" path="res://blind_box_item.gd" id="1_gbeo6"]
+[ext_resource type="Texture2D" uid="uid://6mg1lo7mypea" path="res://assets/images/prizes/labubu.png" id="1_qcx5g"]
+
+[node name="BlindBoxItem" type="Sprite3D" unique_id=624009441]
+pixel_size = 0.015
+texture_filter = 0
+texture = ExtResource("1_qcx5g")
+script = ExtResource("1_gbeo6")

@@ -1,0 +1,6 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://bjssutfkku60o"]
+
+[resource]
+resource_name = "trash_can"
+cull_mode = 2
+albedo_color = Color(0.13333334, 0.8980392, 0.81960785, 1)

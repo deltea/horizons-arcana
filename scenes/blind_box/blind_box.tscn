@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://vqeu1pafp81i"]
+
+[ext_resource type="Script" uid="uid://c3cwv70jvfarx" path="res://scenes/blind_box/blind_box.gd" id="1_vip6x"]
+[ext_resource type="PackedScene" uid="uid://6js1mtx240ng" path="res://assets/models/box.blend" id="2_do4vy"]
+[ext_resource type="PackedScene" uid="uid://dig7hovvtb2yx" path="res://scenes/blind_box_item/blind_box_item.tscn" id="3_fmcyh"]
+
+[node name="BlindBox" type="Node3D" unique_id=1304684457]
+script = ExtResource("1_vip6x")
+
+[node name="BlindBoxItem" parent="." unique_id=624009441 instance=ExtResource("3_fmcyh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+
+[node name="box" parent="." unique_id=577873160 instance=ExtResource("2_do4vy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+
+[node name="Lid" parent="box" index="1" unique_id=757521748]
+transform = Transform3D(-8.742278e-08, -1, 0, 1, -8.742278e-08, 0, 0, 0, 1, 1.0000001, 1, 0)
+
+[editable path="box"]
