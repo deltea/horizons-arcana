@@ -1,6 +1,6 @@
 class_name Camera extends Camera3D
 
-const zoom_in_speed: float = 15.0
+const zoom_in_speed: float = 20.0
 const zoom_out_duration: float = 0.5
 
 @export var decay: float = 1.0

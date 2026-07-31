@@ -54,3 +54,4 @@ func animate_in() -> void:
 	tween.chain().tween_callback(func() -> void: Events.hand_retract.emit())
 	tween.tween_property(self, "global_position:y", -2.0, 0.5).set_ease(Tween.EASE_IN)
 	tween.chain().tween_callback(queue_free)
+	tween.chain().tween_callback(func() -> void: Events.box_resolved.emit())

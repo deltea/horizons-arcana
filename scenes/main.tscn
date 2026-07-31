@@ -3,10 +3,12 @@
 [ext_resource type="PackedScene" uid="uid://gmlodv1asivx" path="res://scenes/camera/camera.tscn" id="1_o5qli"]
 [ext_resource type="Script" uid="uid://cs4engja8c3dt" path="res://scenes/main.gd" id="1_sugp2"]
 [ext_resource type="Texture2D" uid="uid://4g10jxgv8gvv" path="res://assets/images/hand_closed.png" id="3_choun"]
+[ext_resource type="Script" uid="uid://cyf51v3ywt1uc" path="res://item_resource.gd" id="4_eb6dy"]
 [ext_resource type="PackedScene" uid="uid://dxvucuocytgcv" path="res://assets/models/table.blend" id="4_jyhfs"]
 [ext_resource type="Material" uid="uid://de18xmp3o6jut" path="res://assets/materials/wall.tres" id="4_tbgi4"]
 [ext_resource type="Material" uid="uid://d4mrdmri74nmp" path="res://assets/materials/floor.tres" id="4_tipki"]
 [ext_resource type="Material" uid="uid://ylfa2srkv5kf" path="res://assets/materials/big_floor.tres" id="5_85g3d"]
+[ext_resource type="Resource" uid="uid://bn1d4i18srwcl" path="res://resources/labubu.tres" id="5_trceg"]
 [ext_resource type="PackedScene" uid="uid://dd5m3oymlmny4" path="res://scenes/bin/bin.tscn" id="7_o6xl0"]
 [ext_resource type="Texture2D" uid="uid://bjl0lc5bw5nxj" path="res://assets/images/plant.png" id="7_tipki"]
 [ext_resource type="Texture2D" uid="uid://dfh666gpco7sq" path="res://assets/images/hand_open.png" id="9_85g3d"]
@@ -58,6 +60,7 @@ hinting = 0
 script = ExtResource("1_sugp2")
 hand_open_texture = ExtResource("9_85g3d")
 hand_closed_texture = ExtResource("3_choun")
+item_pool = Array[ExtResource("4_eb6dy")]([ExtResource("5_trceg")])
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=109655450]
 environment = SubResource("Environment_38or4")
@@ -101,25 +104,27 @@ size = Vector3(1, 20, 20)
 material = ExtResource("4_tbgi4")
 
 [node name="CSGBox3D3" type="CSGBox3D" parent="Turntable/Room/CSGCombiner3D" unique_id=136787409]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -3.5, 16.4, -5)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 8, 1)
 operation = 2
 size = Vector3(2, 6, 6)
 material = ExtResource("4_tbgi4")
 
-[node name="CSGBox3D4" type="CSGBox3D" parent="Turntable/Room/CSGCombiner3D" unique_id=1279042249]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 3.5, 16.4, -5)
+[node name="CSGBox3D7" type="CSGBox3D" parent="Turntable/Room/CSGCombiner3D" unique_id=752052077]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 8, 1)
 operation = 2
 size = Vector3(2, 6, 6)
 material = ExtResource("4_tbgi4")
 
 [node name="CSGBox3D5" type="CSGBox3D" parent="Turntable/Room/CSGCombiner3D" unique_id=2104594375]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 3.5, 9.4, -5)
+visible = false
 operation = 2
 size = Vector3(2, 6, 6)
 material = ExtResource("4_tbgi4")
 
 [node name="CSGBox3D6" type="CSGBox3D" parent="Turntable/Room/CSGCombiner3D" unique_id=2049445313]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -3.5, 9.4, -5)
+visible = false
 operation = 2
 size = Vector3(2, 6, 6)
 material = ExtResource("4_tbgi4")
@@ -132,13 +137,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 10, 0)
 text = "DAY 9"
 font = SubResource("SystemFont_o6xl0")
 font_size = 360
-outline_size = 0
-
-[node name="InstructionLabel" type="Label3D" parent="Turntable" unique_id=1498873531]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.3205404, 3.2895856)
-text = "shake to find out what's inside!"
-font = SubResource("SystemFont_o6xl0")
-font_size = 120
 outline_size = 0
 
 [node name="Decoration" type="Node3D" parent="Turntable" unique_id=427873262]
@@ -154,3 +152,5 @@ transform = Transform3D(1, 0, 0, 0, 0.7193397, 0.69465834, 0, -0.69465834, 0.719
 pixel_size = 0.0187087
 texture_filter = 0
 texture = ExtResource("9_85g3d")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=2125474194]

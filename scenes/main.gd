@@ -3,10 +3,15 @@ extends Node3D
 const HAND_EXTEND_Y = 8.0
 const HAND_RETRACT_Y = 2.5
 
+const BOX_COUNT_MIN = 3
+const BOX_COUNT_MAX = 6
+
 const blind_box_scene = preload("res://scenes/blind_box/blind_box.tscn")
 
 @export var hand_open_texture: Texture2D
 @export var hand_closed_texture: Texture2D
+
+@export var item_pool: Array[ItemResource]
 
 @onready var day_label: Label3D = $Turntable/DayLabel
 
@@ -16,6 +21,8 @@ const blind_box_scene = preload("res://scenes/blind_box/blind_box.tscn")
 
 var curr_day: int = -1
 var hand_tween: Tween
+var boxes: Array[int] = []
+var boxes_left: int = 0
 
 
 func _ready() -> void:
@@ -32,12 +39,26 @@ func _process(dt: float) -> void:
 
 func next_day() -> void:
 	set_day(curr_day + 1)
+
+	boxes_left = randi_range(BOX_COUNT_MIN, BOX_COUNT_MAX)
+	for i in range(boxes_left): boxes.append(0)
+
+	while boxes_left > 0:
+		next_box()
+		await Events.box_resolved
+		boxes_left -= 1
+		print(str(boxes_left) + " boxes left")
+
+	next_day()
+
+
+func next_box() -> void:
 	spawn_blind_box()
 
 
 func set_day(new_day: int) -> void:
 	curr_day = new_day
-	day_label.text = "DAY %d" % curr_day
+	day_label.text = "DAY %d" % (curr_day + 1)
 	day_label.position.y = 13.0
 	var tween := create_tween().set_trans(Tween.TRANS_EXPO).set_ease(Tween.EASE_OUT)
 	tween.tween_property(day_label, "position:y", 10.0, 1.0)

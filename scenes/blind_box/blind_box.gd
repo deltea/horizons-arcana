@@ -11,6 +11,10 @@ var has_bomb: bool = false
 var open_tween: Tween
 
 
+func _ready() -> void:
+	Events.box_resolved.connect(_on_box_resolved)
+
+
 func toggle_open(is_open: bool) -> void:
 	open_tween = create_tween().set_trans(Tween.TRANS_EXPO).set_ease(Tween.EASE_OUT)
 	open_tween.tween_property(lid, "rotation_degrees:z", LID_OPEN_ROT if is_open else LID_CLOSED_ROT, 0.5)
@@ -29,3 +33,7 @@ func animate_in() -> void:
 	tween.tween_callback(func() -> void: Events.cam_shake.emit(0.3)).set_delay(0.6)
 	tween.tween_callback(func() -> void: Events.cam_shake.emit(0.3)).set_delay(1.1)
 	tween.tween_callback(func() -> void: Events.cam_shake.emit(0.3)).set_delay(1.4)
+
+
+func _on_box_resolved() -> void:
+	queue_free()
