@@ -26,5 +26,6 @@ texture_filter = 0
 texture = ExtResource("1_qcx5g")
 
 [node name="MoneySprite" type="Sprite3D" parent="." unique_id=1757576185]
+no_depth_test = true
 texture_filter = 0
 texture = ExtResource("4_u7ui2")

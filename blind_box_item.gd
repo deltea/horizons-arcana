@@ -38,7 +38,7 @@ func animate_in() -> void:
 	tween.tween_property(self, "scale", Vector3.ONE * 2.0, 1.0)
 	tween.tween_property(item_sprite, "scale", Vector3.ONE * 1.0, 1.0)
 	tween.tween_property(star_sprite, "scale", Vector3.ONE * 1.0, 1.0)
-	tween.tween_interval(5.0)
+	tween.tween_interval(2.0)
 	# turn into money
 	tween.chain().tween_callback(func() -> void:
 		wobble_tween.stop()
@@ -47,3 +47,10 @@ func animate_in() -> void:
 	tween.tween_property(star_sprite, "scale", Vector3.ZERO, 0.5)
 	tween.tween_property(item_sprite, "scale", Vector3.ZERO, 0.5)
 	tween.tween_property(money_sprite, "scale", Vector3.ONE, 0.5)
+	tween.chain().tween_callback(func() -> void: Events.hand_extend.emit())
+	tween.chain().tween_interval(0.5)
+	tween.chain().tween_callback(func() -> void: Events.hand_grab.emit())
+	tween.chain().tween_interval(0.5)
+	tween.chain().tween_callback(func() -> void: Events.hand_retract.emit())
+	tween.tween_property(self, "global_position:y", -2.0, 0.5).set_ease(Tween.EASE_IN)
+	tween.chain().tween_callback(queue_free)
