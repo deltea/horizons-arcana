@@ -5,10 +5,10 @@
 [ext_resource type="Texture2D" uid="uid://vlkkts0a2sd4" path="res://assets/images/progress_bar_progress.png" id="2_tefeu"]
 [ext_resource type="PackedScene" uid="uid://dxvucuocytgcv" path="res://assets/models/table.blend" id="4_jyhfs"]
 [ext_resource type="Material" uid="uid://de18xmp3o6jut" path="res://assets/materials/wall.tres" id="4_tbgi4"]
-[ext_resource type="PackedScene" uid="uid://1gkhlwxhifhg" path="res://assets/models/trash_can.blend" id="5_tbgi4"]
+[ext_resource type="PackedScene" uid="uid://dd5m3oymlmny4" path="res://scenes/bin/bin.tscn" id="7_o6xl0"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_o5qli"]
-sky_top_color = Color(0.99607843, 0.972549, 0.9098039, 1)
+sky_top_color = Color(0.13333334, 0.8980392, 0.81960785, 1)
 sky_horizon_color = Color(0.14901961, 0.5137255, 0.65882355, 1)
 ground_bottom_color = Color(0.14901961, 0.5137255, 0.65882355, 1)
 ground_horizon_color = Color(0.14901961, 0.5137255, 0.65882355, 1)
@@ -25,10 +25,6 @@ size = Vector2(1000, 1000)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jyhfs"]
 albedo_color = Color(0.14901961, 0.5137255, 0.65882355, 1)
-
-[sub_resource type="PlaneMesh" id="PlaneMesh_tbgi4"]
-material = ExtResource("4_tbgi4")
-size = Vector2(20, 20)
 
 [node name="Main" type="Node3D" unique_id=1625054645]
 script = ExtResource("1_sugp2")
@@ -69,7 +65,7 @@ texture_progress = ExtResource("2_tefeu")
 environment = SubResource("Environment_38or4")
 
 [node name="Camera3D" parent="." unique_id=1882948444 instance=ExtResource("1_o5qli")]
-transform = Transform3D(1, 0, 0, 0, 0.9659259, 0.25881907, 0, -0.25881907, 0.9659258, 0, 8, 8)
+transform = Transform3D(1, 0, 0, 0, 0.9659259, 0.25881907, 0, -0.25881907, 0.9659258, 0, 8.5, 8)
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=2081149665]
 transform = Transform3D(0.70710677, 0.5, -0.50000006, 0, 0.7071068, 0.70710677, 0.7071068, -0.49999997, 0.5, 0, 15, 0)
@@ -82,17 +78,58 @@ surface_material_override/0 = SubResource("StandardMaterial3D_jyhfs")
 
 [node name="Node3D" type="Node3D" parent="." unique_id=173836446]
 
-[node name="Wall" type="MeshInstance3D" parent="Node3D" unique_id=321382076]
-transform = Transform3D(-4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0, 1, -10, 10, 0)
-mesh = SubResource("PlaneMesh_tbgi4")
+[node name="CSGCombiner3D" type="CSGCombiner3D" parent="Node3D" unique_id=59876320]
 
-[node name="Wall2" type="MeshInstance3D" parent="Node3D" unique_id=1014884379]
-transform = Transform3D(1.9106855e-15, -4.371139e-08, -1, -1, -4.371139e-08, 0, -4.371139e-08, 1, -4.371139e-08, 0, 10, -5)
-mesh = SubResource("PlaneMesh_tbgi4")
+[node name="Wall4" type="CSGBox3D" parent="Node3D/CSGCombiner3D" unique_id=1494204913]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 10, 0)
+size = Vector3(1, 20, 20)
+material = ExtResource("4_tbgi4")
 
-[node name="Wall3" type="MeshInstance3D" parent="Node3D" unique_id=1566032215]
-transform = Transform3D(4.371139e-08, -1, 8.742278e-08, -1, -4.371139e-08, 0, 3.821371e-15, -8.742278e-08, -1, 10, 10, 0)
-mesh = SubResource("PlaneMesh_tbgi4")
+[node name="Wall5" type="CSGBox3D" parent="Node3D/CSGCombiner3D" unique_id=17669766]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 10, 0)
+size = Vector3(1, 20, 20)
+material = ExtResource("4_tbgi4")
 
-[node name="trash_can" parent="." unique_id=1332370541 instance=ExtResource("5_tbgi4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.9, 0, 1)
+[node name="Wall6" type="CSGBox3D" parent="Node3D/CSGCombiner3D" unique_id=1761153482]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 10, -5)
+size = Vector3(1, 20, 20)
+material = ExtResource("4_tbgi4")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="Node3D/CSGCombiner3D" unique_id=1588760493]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 11, 2)
+operation = 2
+size = Vector3(1, 4, 4)
+material = ExtResource("4_tbgi4")
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="Node3D/CSGCombiner3D" unique_id=2122333348]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 11, 2)
+operation = 2
+size = Vector3(1, 4, 4)
+material = ExtResource("4_tbgi4")
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="Node3D/CSGCombiner3D" unique_id=136787409]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -2.5, 12.5, -5)
+operation = 2
+size = Vector3(2, 4, 4)
+material = ExtResource("4_tbgi4")
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="Node3D/CSGCombiner3D" unique_id=1343169354]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 2.5, 12.5, -5)
+operation = 2
+size = Vector3(2, 4, 4)
+material = ExtResource("4_tbgi4")
+
+[node name="CSGBox3D5" type="CSGBox3D" parent="Node3D/CSGCombiner3D" unique_id=1925533516]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 2.6999998, 8, -5)
+operation = 2
+size = Vector3(2, 4, 4)
+material = ExtResource("4_tbgi4")
+
+[node name="CSGBox3D6" type="CSGBox3D" parent="Node3D/CSGCombiner3D" unique_id=1019865305]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -2.5, 8, -5)
+operation = 2
+size = Vector3(2, 4, 4)
+material = ExtResource("4_tbgi4")
+
+[node name="TrashBin" parent="." unique_id=1129805525 instance=ExtResource("7_o6xl0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, 0)

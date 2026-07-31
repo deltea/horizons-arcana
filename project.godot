@@ -17,6 +17,7 @@ config/icon="res://icon.svg"
 [autoload]
 
 Events="*uid://bwni2aitl4nyr"
+Clock="*uid://4y4aj55xbas0"
 
 [debug]
 
@@ -37,4 +38,5 @@ window/stretch/mode="viewport"
 
 [rendering]
 
+textures/canvas_textures/default_texture_filter=0
 rendering_device/driver.windows="d3d12"

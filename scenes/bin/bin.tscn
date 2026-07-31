@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://dd5m3oymlmny4"]
+
+[ext_resource type="PackedScene" uid="uid://1gkhlwxhifhg" path="res://assets/models/trash_can.blend" id="1_0kp4f"]
+[ext_resource type="Script" uid="uid://sgtpah13sjme" path="res://scenes/bin/bin.gd" id="1_y23yc"]
+
+[node name="Bin" type="Node3D" unique_id=1129805525]
+script = ExtResource("1_y23yc")
+
+[node name="trash_can" parent="." unique_id=2039633632 instance=ExtResource("1_0kp4f")]

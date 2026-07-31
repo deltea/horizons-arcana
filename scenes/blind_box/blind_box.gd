@@ -13,9 +13,13 @@ var open_tween: Tween
 
 func toggle_open(is_open: bool) -> void:
 	open_tween = create_tween().set_trans(Tween.TRANS_EXPO).set_ease(Tween.EASE_OUT)
-	open_tween.tween_property(lid, "rotation_degrees:z", LID_OPEN_ROT if is_open else LID_CLOSED_ROT, 1.0)
+	open_tween.tween_property(lid, "rotation_degrees:z", LID_OPEN_ROT if is_open else LID_CLOSED_ROT, 0.5)
 
 	if is_open:
 		Events.box_opened.emit(has_bomb)
-		await get_tree().create_timer(0.5).timeout
 		item.animate_in()
+
+
+func animate_in() -> void:
+	var tween := create_tween().set_trans(Tween.TRANS_BOUNCE).set_ease(Tween.EASE_OUT).set_parallel()
+	tween.tween_property(self, "position:y", 3.3, 1.5)
