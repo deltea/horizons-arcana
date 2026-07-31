@@ -16,10 +16,16 @@ func toggle_open(is_open: bool) -> void:
 	open_tween.tween_property(lid, "rotation_degrees:z", LID_OPEN_ROT if is_open else LID_CLOSED_ROT, 0.5)
 
 	if is_open:
+		Events.cam_toggle_intense.emit(true)
 		Events.box_opened.emit(has_bomb)
+		await get_tree().create_timer(1.5).timeout
+		Events.cam_toggle_intense.emit(false)
 		item.animate_in()
 
 
 func animate_in() -> void:
 	var tween := create_tween().set_trans(Tween.TRANS_BOUNCE).set_ease(Tween.EASE_OUT).set_parallel()
 	tween.tween_property(self, "position:y", 3.3, 1.5)
+	tween.tween_callback(func() -> void: Events.cam_shake.emit(0.3)).set_delay(0.6)
+	tween.tween_callback(func() -> void: Events.cam_shake.emit(0.3)).set_delay(1.1)
+	tween.tween_callback(func() -> void: Events.cam_shake.emit(0.3)).set_delay(1.4)

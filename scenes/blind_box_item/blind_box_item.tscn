@@ -14,6 +14,12 @@ modulate = Color(1, 0.8, 0.46666667, 1)
 texture_filter = 0
 texture = ExtResource("3_firwp")
 
+[node name="StarSprite2" type="Sprite3D" parent="." unique_id=1499285505]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.1, -0.1, -0.2)
+modulate = Color(0.92022866, 0.65220696, 2.695322e-06, 1)
+texture_filter = 0
+texture = ExtResource("3_firwp")
+
 [node name="ItemSprite" type="Sprite3D" parent="." unique_id=1405483713]
 pixel_size = 0.015
 texture_filter = 0

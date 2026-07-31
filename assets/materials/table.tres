@@ -1,5 +1,8 @@
 [gd_resource type="StandardMaterial3D" format=3 uid="uid://dgcq8ghhp3jts"]
 
+[ext_resource type="Texture2D" uid="uid://n7yyxbm0qmcn" path="res://assets/textures/wood.jpg" id="1_a8fjw"]
+
 [resource]
 resource_name = "table"
-albedo_color = Color(1, 0.8, 0.46666667, 1)
+albedo_texture = ExtResource("1_a8fjw")
+uv1_scale = Vector3(2, 2, 2)

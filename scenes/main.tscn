@@ -5,12 +5,32 @@
 [ext_resource type="Texture2D" uid="uid://vlkkts0a2sd4" path="res://assets/images/progress_bar_progress.png" id="2_tefeu"]
 [ext_resource type="PackedScene" uid="uid://dxvucuocytgcv" path="res://assets/models/table.blend" id="4_jyhfs"]
 [ext_resource type="Material" uid="uid://de18xmp3o6jut" path="res://assets/materials/wall.tres" id="4_tbgi4"]
+[ext_resource type="Material" uid="uid://d4mrdmri74nmp" path="res://assets/materials/floor.tres" id="4_tipki"]
+[ext_resource type="Material" uid="uid://ylfa2srkv5kf" path="res://assets/materials/big_floor.tres" id="5_85g3d"]
 [ext_resource type="PackedScene" uid="uid://dd5m3oymlmny4" path="res://scenes/bin/bin.tscn" id="7_o6xl0"]
 [ext_resource type="Texture2D" uid="uid://bjl0lc5bw5nxj" path="res://assets/images/plant.png" id="7_tipki"]
+
+[sub_resource type="Gradient" id="Gradient_tipki"]
+offsets = PackedFloat32Array(0.05373832, 1)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_tipki"]
+noise_type = 0
+frequency = 0.02
+fractal_octaves = 4
+fractal_gain = 0.3
+fractal_weighted_strength = 0.24
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_tipki"]
+width = 1024
+height = 1024
+noise = SubResource("FastNoiseLite_tipki")
+color_ramp = SubResource("Gradient_tipki")
+seamless = true
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_o5qli"]
 sky_top_color = Color(0.99215686, 0.43137255, 0.44705883, 1)
 sky_horizon_color = Color(0.14901961, 0.5137255, 0.65882355, 1)
+sky_cover = SubResource("NoiseTexture2D_tipki")
 ground_bottom_color = Color(0.14901961, 0.5137255, 0.65882355, 1)
 ground_horizon_color = Color(0.14901961, 0.5137255, 0.65882355, 1)
 
@@ -22,10 +42,11 @@ background_mode = 2
 sky = SubResource("Sky_sgp6g")
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_tefeu"]
-size = Vector2(1000, 1000)
+size = Vector2(20, 20)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jyhfs"]
-albedo_color = Color(0.14901961, 0.5137255, 0.65882355, 1)
+[sub_resource type="PlaneMesh" id="PlaneMesh_tipki"]
+material = ExtResource("5_85g3d")
+size = Vector2(10000, 10000)
 
 [sub_resource type="SystemFont" id="SystemFont_o6xl0"]
 font_names = PackedStringArray("Quicksand")
@@ -70,79 +91,86 @@ texture_progress = ExtResource("2_tefeu")
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=109655450]
 environment = SubResource("Environment_38or4")
 
-[node name="Camera3D" parent="." unique_id=1882948444 instance=ExtResource("1_o5qli")]
+[node name="Turntable" type="Node3D" parent="." unique_id=1427618528]
+
+[node name="Camera3D" parent="Turntable" unique_id=1882948444 instance=ExtResource("1_o5qli")]
 transform = Transform3D(1, 0, 0, 0, 0.9659259, 0.25881907, 0, -0.25881907, 0.9659258, 0, 8.5, 8)
 
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=2081149665]
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="Turntable" unique_id=2081149665]
 transform = Transform3D(0.70710677, 0.5, -0.50000006, 0, 0.7071068, 0.70710677, 0.7071068, -0.49999997, 0.5, 0, 15, 0)
+directional_shadow_mode = 0
 
-[node name="Floor" type="MeshInstance3D" parent="." unique_id=1055983602]
+[node name="Floor" type="MeshInstance3D" parent="Turntable" unique_id=1055983602]
 mesh = SubResource("PlaneMesh_tefeu")
-surface_material_override/0 = SubResource("StandardMaterial3D_jyhfs")
+surface_material_override/0 = ExtResource("4_tipki")
 
-[node name="table" parent="." unique_id=71494229 instance=ExtResource("4_jyhfs")]
+[node name="BigFloor" type="MeshInstance3D" parent="Turntable" unique_id=1042111544]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.1, 0)
+mesh = SubResource("PlaneMesh_tipki")
 
-[node name="Node3D" type="Node3D" parent="." unique_id=173836446]
+[node name="table" parent="Turntable" unique_id=71494229 instance=ExtResource("4_jyhfs")]
 
-[node name="CSGCombiner3D" type="CSGCombiner3D" parent="Node3D" unique_id=59876320]
+[node name="Node3D" type="Node3D" parent="Turntable" unique_id=173836446]
 
-[node name="Wall4" type="CSGBox3D" parent="Node3D/CSGCombiner3D" unique_id=1494204913]
+[node name="CSGCombiner3D" type="CSGCombiner3D" parent="Turntable/Node3D" unique_id=59876320]
+
+[node name="Wall4" type="CSGBox3D" parent="Turntable/Node3D/CSGCombiner3D" unique_id=1494204913]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 10, 0)
 size = Vector3(1, 20, 20)
 material = ExtResource("4_tbgi4")
 
-[node name="Wall5" type="CSGBox3D" parent="Node3D/CSGCombiner3D" unique_id=17669766]
+[node name="Wall5" type="CSGBox3D" parent="Turntable/Node3D/CSGCombiner3D" unique_id=17669766]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 10, 0)
 size = Vector3(1, 20, 20)
 material = ExtResource("4_tbgi4")
 
-[node name="Wall6" type="CSGBox3D" parent="Node3D/CSGCombiner3D" unique_id=1761153482]
+[node name="Wall6" type="CSGBox3D" parent="Turntable/Node3D/CSGCombiner3D" unique_id=1761153482]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 10, -5)
 size = Vector3(1, 20, 20)
 material = ExtResource("4_tbgi4")
 
-[node name="CSGBox3D3" type="CSGBox3D" parent="Node3D/CSGCombiner3D" unique_id=136787409]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -2.5, 15.5, -5)
+[node name="CSGBox3D3" type="CSGBox3D" parent="Turntable/Node3D/CSGCombiner3D" unique_id=136787409]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -3.5, 16.4, -5)
 operation = 2
-size = Vector3(2, 4, 4)
+size = Vector3(2, 6, 6)
 material = ExtResource("4_tbgi4")
 
-[node name="CSGBox3D4" type="CSGBox3D" parent="Node3D/CSGCombiner3D" unique_id=1343169354]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 2.5, 15.5, -5)
+[node name="CSGBox3D4" type="CSGBox3D" parent="Turntable/Node3D/CSGCombiner3D" unique_id=1279042249]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 3.5, 16.4, -5)
 operation = 2
-size = Vector3(2, 4, 4)
+size = Vector3(2, 6, 6)
 material = ExtResource("4_tbgi4")
 
-[node name="CSGBox3D5" type="CSGBox3D" parent="Node3D/CSGCombiner3D" unique_id=1925533516]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 2.6999998, 11, -5)
+[node name="CSGBox3D5" type="CSGBox3D" parent="Turntable/Node3D/CSGCombiner3D" unique_id=2104594375]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 3.5, 9.4, -5)
 operation = 2
-size = Vector3(2, 4, 4)
+size = Vector3(2, 6, 6)
 material = ExtResource("4_tbgi4")
 
-[node name="CSGBox3D6" type="CSGBox3D" parent="Node3D/CSGCombiner3D" unique_id=1019865305]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -2.5, 11, -5)
+[node name="CSGBox3D6" type="CSGBox3D" parent="Turntable/Node3D/CSGCombiner3D" unique_id=2049445313]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -3.5, 9.4, -5)
 operation = 2
-size = Vector3(2, 4, 4)
+size = Vector3(2, 6, 6)
 material = ExtResource("4_tbgi4")
 
-[node name="TrashBin" parent="." unique_id=1129805525 instance=ExtResource("7_o6xl0")]
+[node name="TrashBin" parent="Turntable" unique_id=1129805525 instance=ExtResource("7_o6xl0")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, 0)
 
-[node name="DayLabel" type="Label3D" parent="." unique_id=754942907]
+[node name="DayLabel" type="Label3D" parent="Turntable" unique_id=754942907]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 10, 0)
 text = "DAY 9"
 font = SubResource("SystemFont_o6xl0")
 font_size = 360
 outline_size = 0
 
-[node name="InstructionLabel" type="Label3D" parent="." unique_id=1498873531]
+[node name="InstructionLabel" type="Label3D" parent="Turntable" unique_id=1498873531]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.3205404, 3.2895856)
 text = "shake to find out what's inside!"
 font = SubResource("SystemFont_o6xl0")
 font_size = 120
 outline_size = 0
 
-[node name="Sprite3D" type="Sprite3D" parent="." unique_id=65722358]
+[node name="Sprite3D" type="Sprite3D" parent="Turntable" unique_id=65722358]
 transform = Transform3D(0.7071067, 0, 0.70710677, 0, 1, 0, -0.70710677, 0, 0.7071067, -6.5, 3.7, -1.7)
 pixel_size = 0.03
 texture_filter = 0

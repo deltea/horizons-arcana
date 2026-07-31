@@ -1,4 +1,10 @@
 [gd_resource type="StandardMaterial3D" format=3 uid="uid://de18xmp3o6jut"]
 
+[ext_resource type="Texture2D" uid="uid://dxljhtkank5ce" path="res://assets/textures/wallpaper.jpg" id="1_blum3"]
+
 [resource]
 albedo_color = Color(0.14901961, 0.5137255, 0.65882355, 1)
+albedo_texture = ExtResource("1_blum3")
+uv1_scale = Vector3(0.12, 0.12, 0.12)
+uv1_triplanar = true
+texture_filter = 2
