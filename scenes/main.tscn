@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://dd5m3oymlmny4" path="res://scenes/bin/bin.tscn" id="7_o6xl0"]
 [ext_resource type="Texture2D" uid="uid://bjl0lc5bw5nxj" path="res://assets/images/plant.png" id="7_tipki"]
 [ext_resource type="Texture2D" uid="uid://dfh666gpco7sq" path="res://assets/images/hand_open.png" id="9_85g3d"]
+[ext_resource type="PackedScene" uid="uid://b5x6g0xfspjy" path="res://scenes/calendar/calendar.tscn" id="13_trceg"]
 
 [sub_resource type="Gradient" id="Gradient_tipki"]
 offsets = PackedFloat32Array(0.05373832, 1)
@@ -51,10 +52,7 @@ size = Vector2(20, 20)
 material = ExtResource("5_85g3d")
 size = Vector2(10000, 10000)
 
-[sub_resource type="SystemFont" id="SystemFont_o6xl0"]
-font_names = PackedStringArray("Quicksand")
-font_weight = 999
-hinting = 0
+[sub_resource type="SystemFont" id="SystemFont_trceg"]
 
 [node name="Main" type="Node3D" unique_id=1625054645]
 script = ExtResource("1_sugp2")
@@ -132,13 +130,6 @@ material = ExtResource("4_tbgi4")
 [node name="TrashBin" parent="Turntable" unique_id=1129805525 instance=ExtResource("7_o6xl0")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, 0)
 
-[node name="DayLabel" type="Label3D" parent="Turntable" unique_id=754942907]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 10, 0)
-text = "DAY 9"
-font = SubResource("SystemFont_o6xl0")
-font_size = 360
-outline_size = 0
-
 [node name="Decoration" type="Node3D" parent="Turntable" unique_id=427873262]
 
 [node name="Plant" type="Sprite3D" parent="Turntable/Decoration" unique_id=65722358]
@@ -152,5 +143,15 @@ transform = Transform3D(1, 0, 0, 0, 0.7193397, 0.69465834, 0, -0.69465834, 0.719
 pixel_size = 0.0187087
 texture_filter = 0
 texture = ExtResource("9_85g3d")
+
+[node name="Calendar" parent="Turntable" unique_id=2000870305 instance=ExtResource("13_trceg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 8, -4.4)
+
+[node name="DayLabel" type="Label3D" parent="Turntable/Calendar" unique_id=754942907]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.2999997, 0.4000001)
+modulate = Color(0, 0, 0, 1)
+text = "9"
+font = SubResource("SystemFont_trceg")
+font_size = 500
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=2125474194]

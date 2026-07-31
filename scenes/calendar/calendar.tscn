@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://b5x6g0xfspjy"]
+
+[ext_resource type="PackedScene" uid="uid://cs67qof80e3ie" path="res://assets/models/calendar.blend" id="1_dqf2n"]
+
+[node name="Calendar" type="Node3D" unique_id=2000870305]
+
+[node name="calendar" parent="." unique_id=1312838845 instance=ExtResource("1_dqf2n")]
