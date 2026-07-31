@@ -17,7 +17,7 @@ const blind_box_scene = preload("res://scenes/blind_box/blind_box.tscn")
 @onready var day_label: Label3D = $Turntable/Calendar/DayLabel
 
 @onready var turntable: Node3D = $Turntable
-@onready var trash_bin: Bin = $Turntable/TrashBin
+@onready var trash_can: Sprite3D = $Turntable/TrashCan
 @onready var hand: Sprite3D = $Turntable/Hand
 
 var curr_day: int = -1

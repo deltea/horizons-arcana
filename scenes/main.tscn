@@ -9,10 +9,11 @@
 [ext_resource type="Material" uid="uid://d4mrdmri74nmp" path="res://assets/materials/floor.tres" id="4_tipki"]
 [ext_resource type="Material" uid="uid://ylfa2srkv5kf" path="res://assets/materials/big_floor.tres" id="5_85g3d"]
 [ext_resource type="Resource" uid="uid://bn1d4i18srwcl" path="res://resources/labubu.tres" id="5_trceg"]
-[ext_resource type="PackedScene" uid="uid://dd5m3oymlmny4" path="res://scenes/bin/bin.tscn" id="7_o6xl0"]
 [ext_resource type="Texture2D" uid="uid://bjl0lc5bw5nxj" path="res://assets/images/plant.png" id="7_tipki"]
 [ext_resource type="Texture2D" uid="uid://dfh666gpco7sq" path="res://assets/images/hand_open.png" id="9_85g3d"]
+[ext_resource type="Texture2D" uid="uid://c5wwo58wpibha" path="res://assets/images/trash_can.png" id="13_a8y0u"]
 [ext_resource type="PackedScene" uid="uid://b5x6g0xfspjy" path="res://scenes/calendar/calendar.tscn" id="13_trceg"]
+[ext_resource type="Texture2D" uid="uid://b4bobwh4pvrvi" path="res://assets/images/trash_can_lid.png" id="14_a8y0u"]
 
 [sub_resource type="Gradient" id="Gradient_tipki"]
 offsets = PackedFloat32Array(0.05373832, 1)
@@ -127,9 +128,6 @@ operation = 2
 size = Vector3(2, 6, 6)
 material = ExtResource("4_tbgi4")
 
-[node name="TrashBin" parent="Turntable" unique_id=1129805525 instance=ExtResource("7_o6xl0")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, 0)
-
 [node name="Decoration" type="Node3D" parent="Turntable" unique_id=427873262]
 
 [node name="Plant" type="Sprite3D" parent="Turntable/Decoration" unique_id=65722358]
@@ -145,7 +143,7 @@ texture_filter = 0
 texture = ExtResource("9_85g3d")
 
 [node name="Calendar" parent="Turntable" unique_id=2000870305 instance=ExtResource("13_trceg")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 8, -4.4)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 9, -4.4)
 
 [node name="DayLabel" type="Label3D" parent="Turntable/Calendar" unique_id=754942907]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.2999997, 0.4000001)
@@ -153,5 +151,20 @@ modulate = Color(0, 0, 0, 1)
 text = "9"
 font = SubResource("SystemFont_trceg")
 font_size = 500
+
+[node name="TrashCan" type="Sprite3D" parent="Turntable" unique_id=1034928420]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 2.3, 0.2)
+pixel_size = 0.04
+texture_filter = 0
+texture = ExtResource("13_a8y0u")
+
+[node name="TrashCanLid" type="Node3D" parent="Turntable/TrashCan" unique_id=158259155]
+transform = Transform3D(0.70710677, 0.70710677, 0, -0.70710677, 0.70710677, 0, 0, 0, 1, 1.5, 1.7, 0)
+
+[node name="TrashCan2" type="Sprite3D" parent="Turntable/TrashCan/TrashCanLid" unique_id=2100012672]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, 0.3000002, 0)
+pixel_size = 0.04
+texture_filter = 0
+texture = ExtResource("14_a8y0u")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=2125474194]
