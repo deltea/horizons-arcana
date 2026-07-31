@@ -9,6 +9,7 @@
 [ext_resource type="Material" uid="uid://d4mrdmri74nmp" path="res://assets/materials/floor.tres" id="4_tipki"]
 [ext_resource type="Material" uid="uid://ylfa2srkv5kf" path="res://assets/materials/big_floor.tres" id="5_85g3d"]
 [ext_resource type="Resource" uid="uid://bn1d4i18srwcl" path="res://resources/labubu.tres" id="5_trceg"]
+[ext_resource type="Texture2D" uid="uid://1q8prk7qtv7t" path="res://assets/images/spotlight.png" id="6_jkv2x"]
 [ext_resource type="Texture2D" uid="uid://bjl0lc5bw5nxj" path="res://assets/images/plant.png" id="7_tipki"]
 [ext_resource type="Texture2D" uid="uid://dfh666gpco7sq" path="res://assets/images/hand_open.png" id="9_85g3d"]
 [ext_resource type="Texture2D" uid="uid://c5wwo58wpibha" path="res://assets/images/trash_can.png" id="13_a8y0u"]
@@ -60,6 +61,16 @@ script = ExtResource("1_sugp2")
 hand_open_texture = ExtResource("9_85g3d")
 hand_closed_texture = ExtResource("3_choun")
 item_pool = Array[ExtResource("4_eb6dy")]([ExtResource("5_trceg")])
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=2125474194]
+
+[node name="Spotlight" type="TextureRect" parent="CanvasLayer" unique_id=222841673]
+visible = false
+offset_left = -160.0
+offset_top = -80.0
+offset_right = 800.0
+offset_bottom = 460.0
+texture = ExtResource("6_jkv2x")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=109655450]
 environment = SubResource("Environment_38or4")
@@ -166,5 +177,3 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, 0.3000002, 0)
 pixel_size = 0.04
 texture_filter = 0
 texture = ExtResource("14_a8y0u")
-
-[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=2125474194]

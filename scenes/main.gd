@@ -4,8 +4,8 @@ extends Node3D
 const HAND_EXTEND_Y = 8.0
 const HAND_RETRACT_Y = 2.5
 
-const BOX_COUNT_MIN = 3
-const BOX_COUNT_MAX = 6
+const BOX_COUNT_MIN = 1
+const BOX_COUNT_MAX = 1
 
 const blind_box_scene = preload("res://scenes/blind_box/blind_box.tscn")
 
@@ -19,6 +19,7 @@ const blind_box_scene = preload("res://scenes/blind_box/blind_box.tscn")
 @onready var turntable: Node3D = $Turntable
 @onready var trash_can: Sprite3D = $Turntable/TrashCan
 @onready var hand: Sprite3D = $Turntable/Hand
+@onready var spotlight: TextureRect = $CanvasLayer/Spotlight
 
 var curr_day: int = -1
 var hand_tween: Tween
@@ -60,11 +61,9 @@ func next_box() -> void:
 func set_day(new_day: int) -> void:
 	curr_day = new_day
 	day_label.text = str(curr_day + 1)
-	# day_label.position.y = 13.0
-	# var tween := create_tween().set_trans(Tween.TRANS_EXPO).set_ease(Tween.EASE_OUT)
-	# tween.tween_property(day_label, "position:y", 10.0, 1.0)
-	# tween.tween_interval(1.0)
-	# tween.tween_property(day_label, "position:y", 13.0, 0.5)
+	# spotlight.show()
+	# await get_tree().create_timer(1.5).timeout
+	# spotlight.hide()
 
 
 func spawn_blind_box() -> void:
