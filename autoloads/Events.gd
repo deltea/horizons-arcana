@@ -1,6 +1,9 @@
 extends Node
 
 
+const DEBUG = true
+
+
 signal input_shake()
 signal input_open()
 signal input_close()

@@ -1,5 +1,6 @@
 extends Node3D
 
+
 const HAND_EXTEND_Y = 8.0
 const HAND_RETRACT_Y = 2.5
 
@@ -89,3 +90,15 @@ func _on_hand_retract() -> void:
 func _on_hand_grab() -> void:
 	hand.texture = hand_closed_texture
 	Events.cam_shake.emit(0.4)
+
+
+func _input(event: InputEvent) -> void:
+	if not Events.DEBUG:
+		return
+
+	if event.is_action_pressed("click"):
+		Events.input_shake.emit()
+	if event.is_action_pressed("open"):
+		Events.input_open.emit()
+	if event.is_action_pressed("close"):
+		Events.input_close.emit()
