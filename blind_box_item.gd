@@ -13,6 +13,7 @@ var wobble_tween: Tween
 func _ready() -> void:
 	star_sprite.scale = Vector3.ZERO
 	money_sprite.scale = Vector3.ZERO
+	item_sprite.scale = Vector3.ZERO
 
 	wobble_tween = create_tween().set_loops()
 	wobble_tween.tween_property(item_sprite, "rotation_degrees:z", 15.0, 0.0)
@@ -31,7 +32,6 @@ func _process(dt: float) -> void:
 
 func animate_in() -> void:
 	star_sprite.scale = Vector3.ZERO
-	item_sprite.scale = Vector3.ZERO
 
 	var tween := create_tween().set_trans(Tween.TRANS_EXPO).set_ease(Tween.EASE_OUT).set_parallel()
 	tween.tween_property(self, "position:y", 4.0, 1.0).as_relative()
