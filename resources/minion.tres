@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="ItemResource" format=3 uid="uid://fl6vtvtaao8b"]
+
+[ext_resource type="Texture2D" uid="uid://b88f6l1nh2m66" path="res://assets/images/prizes/minion.png" id="1_nuw1c"]
+[ext_resource type="Script" uid="uid://cyf51v3ywt1uc" path="res://item_resource.gd" id="2_ogk82"]
+
+[resource]
+script = ExtResource("2_ogk82")
+item_name = "Minion"
+item_desc = "bello"
+item_texture = ExtResource("1_nuw1c")
+metadata/_custom_type_script = "uid://cyf51v3ywt1uc"

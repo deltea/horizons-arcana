@@ -67,8 +67,10 @@ func set_day(new_day: int) -> void:
 
 
 func spawn_blind_box() -> void:
+	var rand_item := item_pool.pick_random() as ItemResource
 	var blind_box := blind_box_scene.instantiate() as BlindBox
 	turntable.add_child(blind_box)
+	blind_box.set_info(rand_item.item_texture)
 	blind_box.position.y = 14.2
 	blind_box.animate_in()
 	await get_tree().create_timer(1.5).timeout

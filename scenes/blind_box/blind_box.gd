@@ -35,5 +35,9 @@ func animate_in() -> void:
 	tween.tween_callback(func() -> void: Events.cam_shake.emit(0.3)).set_delay(1.4)
 
 
+func set_info(item_texture: Texture2D) -> void:
+	item.item_sprite.texture = item_texture
+
+
 func _on_box_resolved() -> void:
 	queue_free()

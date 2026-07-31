@@ -38,7 +38,9 @@ func animate_in() -> void:
 	tween.tween_property(self, "scale", Vector3.ONE * 2.0, 1.0)
 	tween.tween_property(item_sprite, "scale", Vector3.ONE * 1.0, 1.0)
 	tween.tween_property(star_sprite, "scale", Vector3.ONE * 1.0, 1.0)
-	tween.tween_interval(2.0)
+
+	tween.tween_interval(3.0)
+
 	# turn into money
 	tween.chain().tween_callback(func() -> void:
 		wobble_tween.stop()

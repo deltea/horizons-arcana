@@ -9,12 +9,15 @@
 [ext_resource type="Material" uid="uid://d4mrdmri74nmp" path="res://assets/materials/floor.tres" id="4_tipki"]
 [ext_resource type="Material" uid="uid://ylfa2srkv5kf" path="res://assets/materials/big_floor.tres" id="5_85g3d"]
 [ext_resource type="Resource" uid="uid://bn1d4i18srwcl" path="res://resources/labubu.tres" id="5_trceg"]
+[ext_resource type="Resource" uid="uid://fl6vtvtaao8b" path="res://resources/minion.tres" id="6_jbj1t"]
 [ext_resource type="Texture2D" uid="uid://1q8prk7qtv7t" path="res://assets/images/spotlight.png" id="6_jkv2x"]
 [ext_resource type="Texture2D" uid="uid://bjl0lc5bw5nxj" path="res://assets/images/plant.png" id="7_tipki"]
 [ext_resource type="Texture2D" uid="uid://dfh666gpco7sq" path="res://assets/images/hand_open.png" id="9_85g3d"]
 [ext_resource type="Texture2D" uid="uid://c5wwo58wpibha" path="res://assets/images/trash_can.png" id="13_a8y0u"]
 [ext_resource type="PackedScene" uid="uid://b5x6g0xfspjy" path="res://scenes/calendar/calendar.tscn" id="13_trceg"]
 [ext_resource type="Texture2D" uid="uid://b4bobwh4pvrvi" path="res://assets/images/trash_can_lid.png" id="14_a8y0u"]
+[ext_resource type="PackedScene" uid="uid://b6iotncvwmytl" path="res://assets/models/board.blend" id="17_muem4"]
+[ext_resource type="Texture2D" uid="uid://ck0gpe2ikufce" path="res://assets/images/graph.png" id="18_dp3eg"]
 
 [sub_resource type="Gradient" id="Gradient_tipki"]
 offsets = PackedFloat32Array(0.05373832, 1)
@@ -56,11 +59,13 @@ size = Vector2(10000, 10000)
 
 [sub_resource type="SystemFont" id="SystemFont_trceg"]
 
+[sub_resource type="SystemFont" id="SystemFont_dp3eg"]
+
 [node name="Main" type="Node3D" unique_id=1625054645]
 script = ExtResource("1_sugp2")
 hand_open_texture = ExtResource("9_85g3d")
 hand_closed_texture = ExtResource("3_choun")
-item_pool = Array[ExtResource("4_eb6dy")]([ExtResource("5_trceg")])
+item_pool = Array[ExtResource("4_eb6dy")]([ExtResource("5_trceg"), ExtResource("6_jbj1t")])
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=2125474194]
 
@@ -177,3 +182,21 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, 0.3000002, 0)
 pixel_size = 0.04
 texture_filter = 0
 texture = ExtResource("14_a8y0u")
+
+[node name="Label3D" type="Label3D" parent="Turntable" unique_id=1538370286]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.6, 10.2, -4)
+modulate = Color(0, 0, 0, 1)
+text = "Daily Earnings:
+$300"
+font = SubResource("SystemFont_dp3eg")
+font_size = 160
+outline_size = 0
+
+[node name="board" parent="Turntable" unique_id=821594479 instance=ExtResource("17_muem4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.6, 9, -4.2)
+
+[node name="Sprite3D" type="Sprite3D" parent="Turntable" unique_id=732404467]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.5, 8.2, -4)
+pixel_size = 0.0229029
+texture_filter = 0
+texture = ExtResource("18_dp3eg")

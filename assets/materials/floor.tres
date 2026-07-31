@@ -4,7 +4,6 @@
 
 [resource]
 albedo_texture = ExtResource("1_7nsbm")
-albedo_texture_force_srgb = true
 uv1_scale = Vector3(0.12, 0.12, 0.12)
 uv1_triplanar = true
 texture_filter = 0

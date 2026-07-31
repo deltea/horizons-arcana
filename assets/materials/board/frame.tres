@@ -1,0 +1,9 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://b68xty08rrsly"]
+
+[ext_resource type="Texture2D" uid="uid://cguh1khg5tjlo" path="res://assets/textures/cork.jpg" id="1_yc8sx"]
+
+[resource]
+resource_name = "frame"
+albedo_texture = ExtResource("1_yc8sx")
+uv1_scale = Vector3(4, 4, 4)
+texture_filter = 0
