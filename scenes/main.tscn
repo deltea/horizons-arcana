@@ -9,7 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://bjl0lc5bw5nxj" path="res://assets/images/plant.png" id="7_tipki"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_o5qli"]
-sky_top_color = Color(0.13333334, 0.8980392, 0.81960785, 1)
+sky_top_color = Color(0.99215686, 0.43137255, 0.44705883, 1)
 sky_horizon_color = Color(0.14901961, 0.5137255, 0.65882355, 1)
 ground_bottom_color = Color(0.14901961, 0.5137255, 0.65882355, 1)
 ground_horizon_color = Color(0.14901961, 0.5137255, 0.65882355, 1)
@@ -135,8 +135,15 @@ font = SubResource("SystemFont_o6xl0")
 font_size = 360
 outline_size = 0
 
+[node name="InstructionLabel" type="Label3D" parent="." unique_id=1498873531]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.3205404, 3.2895856)
+text = "shake to find out what's inside!"
+font = SubResource("SystemFont_o6xl0")
+font_size = 120
+outline_size = 0
+
 [node name="Sprite3D" type="Sprite3D" parent="." unique_id=65722358]
-transform = Transform3D(0.8660254, 0, 0.5, 0, 1, 0, -0.5, 0, 0.8660254, -6, 4.9, -2.7)
-pixel_size = 0.04
+transform = Transform3D(0.7071067, 0, 0.70710677, 0, 1, 0, -0.70710677, 0, 0.7071067, -6.5, 3.7, -1.7)
+pixel_size = 0.03
 texture_filter = 0
 texture = ExtResource("7_tipki")
