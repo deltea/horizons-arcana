@@ -6,6 +6,7 @@
 - [ ] start screen
 - [ ] inspection logic
 - [ ] rarity logic
+- [ ] sfx and music
 - [x] bomb items
 - [x] death screen
 - [x] show item name
