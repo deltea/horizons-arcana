@@ -33,6 +33,7 @@ func animate_in() -> void:
 	tween.tween_callback(func() -> void: Events.cam_shake.emit(0.3)).set_delay(0.6)
 	tween.tween_callback(func() -> void: Events.cam_shake.emit(0.3)).set_delay(1.1)
 	tween.tween_callback(func() -> void: Events.cam_shake.emit(0.3)).set_delay(1.4)
+	await tween.finished
 
 
 func set_info(item_texture: Texture2D) -> void:

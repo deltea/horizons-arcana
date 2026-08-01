@@ -25,6 +25,7 @@ const blind_box_scene = preload("res://scenes/blind_box/blind_box.tscn")
 @onready var item_info: PanelContainer = $CanvasLayer/ItemInfo
 @onready var item_name_label: Label = $CanvasLayer/ItemInfo/VBoxContainer/ItemNameLabel
 @onready var item_desc_label: Label = $CanvasLayer/ItemInfo/VBoxContainer/ItemDescLabel
+@onready var item_value_label: Label = $CanvasLayer/ItemInfo/VBoxContainer/ItemValueLabel
 
 @onready var hearts_container: HBoxContainer = $CanvasLayer/HeartsContainer
 
@@ -87,13 +88,14 @@ func spawn_blind_box() -> void:
 	var rand_item := item_pool.pick_random() as ItemResource
 	item_name_label.text = rand_item.item_name
 	item_desc_label.text = rand_item.item_desc
+	item_value_label.text = "$" + str(rand_item.item_price)
 
 	var blind_box := blind_box_scene.instantiate() as BlindBox
 	turntable.add_child(blind_box)
 	blind_box.set_info(rand_item.item_texture)
 	blind_box.position.y = 14.2
-	blind_box.animate_in()
-	await get_tree().create_timer(1.5).timeout
+	await blind_box.animate_in()
+	await get_tree().create_timer(1.0).timeout
 	blind_box.toggle_open(true)
 
 
