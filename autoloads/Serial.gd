@@ -25,10 +25,3 @@ func _on_data_received(port: String, data: PackedByteArray) -> void:
 
 func _on_port_disconnected(port: String) -> void:
 	print("lost connection to " + port)
-
-
-# func _input(event: InputEvent) -> void:
-# 	if event.is_action_pressed("ui_up"):
-# 		manager.write(PORT_NAME, "LED_ON\n".to_utf8_buffer())
-# 	elif event.is_action_pressed("ui_down"):
-# 		manager.write(PORT_NAME, "LED_OFF\n".to_utf8_buffer())

@@ -2,7 +2,7 @@
 
 - [ ] inspection logic
 - [ ] start screen
-- [ ] sfx and music
+- [x] sfx and music
 - [x] trashed animation
 - [x] rarity logic
 - [x] end screen

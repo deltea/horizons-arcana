@@ -175,7 +175,7 @@ func set_curr_phase(texture: Texture2D) -> void:
 
 func set_curr_cash(new_value: int) -> void:
 	total_earnings = new_value
-	earnings_label.text = "Daily Earnings:\n$" + str(total_earnings)
+	earnings_label.text = "Total Earnings:\n$" + str(total_earnings)
 
 
 func _on_hand_extend() -> void:
