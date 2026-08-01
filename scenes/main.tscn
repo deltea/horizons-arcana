@@ -115,36 +115,46 @@ offset_right = 800.0
 offset_bottom = 460.0
 texture = ExtResource("6_jkv2x")
 
-[node name="ItemInfo" type="PanelContainer" parent="CanvasLayer" unique_id=2102266180]
+[node name="ItemContainer" type="Control" parent="CanvasLayer" unique_id=617687478]
+layout_mode = 3
 anchors_preset = 7
 anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -92.0
-offset_top = -96.0
-offset_right = 92.0
-offset_bottom = -30.0
+offset_left = -102.0
+offset_top = -80.0
+offset_right = 102.0
+offset_bottom = -40.0
 grow_horizontal = 2
 grow_vertical = 0
+size_flags_horizontal = 3
+
+[node name="ItemInfo" type="PanelContainer" parent="CanvasLayer/ItemContainer" unique_id=2102266180]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_0ld40")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/ItemInfo" unique_id=1762779191]
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/ItemContainer/ItemInfo" unique_id=1762779191]
 layout_mode = 2
 
-[node name="ItemNameLabel" type="Label" parent="CanvasLayer/ItemInfo/VBoxContainer" unique_id=1992123676]
+[node name="ItemNameLabel" type="Label" parent="CanvasLayer/ItemContainer/ItemInfo/VBoxContainer" unique_id=1992123676]
 layout_mode = 2
 text = "asdfasdfasdfasdf"
 label_settings = SubResource("LabelSettings_pm3ni")
 horizontal_alignment = 1
 
-[node name="ItemDescLabel" type="Label" parent="CanvasLayer/ItemInfo/VBoxContainer" unique_id=920877794]
+[node name="ItemDescLabel" type="Label" parent="CanvasLayer/ItemContainer/ItemInfo/VBoxContainer" unique_id=920877794]
 layout_mode = 2
 text = "its the rarest labubu of them all"
 label_settings = SubResource("LabelSettings_0ld40")
 horizontal_alignment = 1
 
-[node name="ItemValueLabel" type="Label" parent="CanvasLayer/ItemInfo/VBoxContainer" unique_id=1204136733]
+[node name="ItemValueLabel" type="Label" parent="CanvasLayer/ItemContainer/ItemInfo/VBoxContainer" unique_id=1204136733]
 layout_mode = 2
 text = "sells for $3000"
 label_settings = SubResource("LabelSettings_0ld40")

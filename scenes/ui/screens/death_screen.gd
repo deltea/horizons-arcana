@@ -8,12 +8,14 @@ class_name DeathScreen extends CanvasLayer
 
 
 func _ready() -> void:
+	Events.input_shake.connect(_on_input_shake)
+
 	labubu.scale = Vector2.ZERO
 	labubu.self_modulate.a = 0.0
 	flashbang.self_modulate.a = 1.0
 
 	var tween := create_tween().set_trans(Tween.TRANS_LINEAR).set_parallel().set_ignore_time_scale()
-	tween.tween_property(flashbang, "self_modulate:a", 0.0, 3.0)
+	tween.tween_property(flashbang, "self_modulate:a", 0.0, 4.0)
 	tween.tween_property(labubu, "scale", Vector2.ONE, 10.0)
 	tween.tween_property(labubu, "self_modulate:a", 1.0, 10.0)
 
@@ -21,3 +23,8 @@ func _ready() -> void:
 func set_info(total_revenue: int, days_survived: int) -> void:
 	revenue_label.text = "total revenue:\n$" + str(total_revenue)
 	survival_label.text = "days survived:\n" + str(days_survived)
+
+
+func _on_input_shake() -> void:
+	Engine.time_scale = 1.0
+	get_tree().reload_current_scene()

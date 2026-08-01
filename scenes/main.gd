@@ -31,10 +31,10 @@ const alert_label_scene = preload("res://scenes/ui/alert_label.tscn")
 @onready var spotlight: TextureRect = $CanvasLayer/Spotlight
 @onready var earnings_label: Label3D = $Turntable/EarningsLabel
 
-@onready var item_info: PanelContainer = $CanvasLayer/ItemInfo
-@onready var item_name_label: Label = $CanvasLayer/ItemInfo/VBoxContainer/ItemNameLabel
-@onready var item_desc_label: Label = $CanvasLayer/ItemInfo/VBoxContainer/ItemDescLabel
-@onready var item_value_label: Label = $CanvasLayer/ItemInfo/VBoxContainer/ItemValueLabel
+@onready var item_info: PanelContainer = $CanvasLayer/ItemContainer/ItemInfo
+@onready var item_name_label: Label = $CanvasLayer/ItemContainer/ItemInfo/VBoxContainer/ItemNameLabel
+@onready var item_desc_label: Label = $CanvasLayer/ItemContainer/ItemInfo/VBoxContainer/ItemDescLabel
+@onready var item_value_label: Label = $CanvasLayer/ItemContainer/ItemInfo/VBoxContainer/ItemValueLabel
 
 @onready var hearts_container: HBoxContainer = $CanvasLayer/HeartsContainer
 @onready var flashbang: ColorRect = $CanvasLayer/Flashbang
