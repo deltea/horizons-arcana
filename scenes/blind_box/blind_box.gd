@@ -46,4 +46,7 @@ func set_info(item_texture: Texture2D) -> void:
 
 
 func _on_box_resolved() -> void:
-	queue_free()
+	# queue_free()
+	var tween := create_tween().set_trans(Tween.TRANS_EXPO).set_ease(Tween.EASE_IN)
+	tween.tween_property(self, "scale", Vector3.ZERO, 0.2)
+	tween.tween_callback(queue_free)
