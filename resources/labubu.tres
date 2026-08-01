@@ -7,6 +7,7 @@
 script = ExtResource("1_gvtiy")
 item_name = "Golden Rare Labubu: Dubai Chocolate Covered Edition"
 item_desc = "its a very cool and rare labubu"
+item_price = 250
 item_rarity = 2
 item_texture = ExtResource("1_l4el7")
 metadata/_custom_type_script = "uid://cyf51v3ywt1uc"

@@ -5,8 +5,9 @@
 
 [resource]
 script = ExtResource("2_8bdlc")
-item_name = "Big Yahu"
+item_name = "The Big Yahu"
 item_desc = "blesses you with gold"
+item_price = 250
 item_rarity = 2
 item_texture = ExtResource("1_i26us")
 metadata/_custom_type_script = "uid://cyf51v3ywt1uc"

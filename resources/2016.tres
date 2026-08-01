@@ -7,6 +7,7 @@
 script = ExtResource("2_3otwe")
 item_name = "2016"
 item_desc = "literally the entire year of 2016"
+item_price = 250
 item_rarity = 2
 item_texture = ExtResource("1_3vygy")
 metadata/_custom_type_script = "uid://cyf51v3ywt1uc"

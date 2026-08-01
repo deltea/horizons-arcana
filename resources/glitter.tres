@@ -7,6 +7,7 @@
 script = ExtResource("2_0nvsu")
 item_name = "Glitter"
 item_desc = "some glitter to brighten up your day!"
+item_price = 175
 item_rarity = 1
 item_texture = ExtResource("1_5lxp2")
 metadata/_custom_type_script = "uid://cyf51v3ywt1uc"

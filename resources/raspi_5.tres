@@ -7,6 +7,7 @@
 script = ExtResource("2_mvgeo")
 item_name = "Raspberry Pi 5"
 item_desc = "the ultimate minecraft server"
+item_price = 175
 item_rarity = 1
 item_texture = ExtResource("1_tcul3")
 metadata/_custom_type_script = "uid://cyf51v3ywt1uc"
