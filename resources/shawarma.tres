@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="ItemResource" format=3 uid="uid://l3nwcs8ke3ur"]
+
+[ext_resource type="Texture2D" uid="uid://b5jxrb4cnym4h" path="res://assets/images/prizes/shawarma.png" id="1_gc3re"]
+[ext_resource type="Script" uid="uid://cyf51v3ywt1uc" path="res://item_resource.gd" id="2_5fg4m"]
+
+[resource]
+script = ExtResource("2_5fg4m")
+item_name = "Chicken Shawarma"
+item_desc = "a delicious snacky"
+item_texture = ExtResource("1_gc3re")
+metadata/_custom_type_script = "uid://cyf51v3ywt1uc"

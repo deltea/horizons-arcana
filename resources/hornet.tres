@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="ItemResource" format=3 uid="uid://cgquggvven5fv"]
+
+[ext_resource type="Texture2D" uid="uid://bgoxny3b47j33" path="res://assets/images/prizes/hornet.webp" id="1_d4m7r"]
+[ext_resource type="Script" uid="uid://cyf51v3ywt1uc" path="res://item_resource.gd" id="2_1fe6a"]
+
+[resource]
+script = ExtResource("2_1fe6a")
+item_name = "Hornet"
+item_desc = "the daughter of pharloom"
+item_texture = ExtResource("1_d4m7r")
+metadata/_custom_type_script = "uid://cyf51v3ywt1uc"

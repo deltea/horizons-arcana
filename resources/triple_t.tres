@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="ItemResource" format=3 uid="uid://djrasop0x71ch"]
+
+[ext_resource type="Texture2D" uid="uid://k13jv0rq6mwh" path="res://assets/images/prizes/triple_t.png" id="1_bsuxb"]
+[ext_resource type="Script" uid="uid://cyf51v3ywt1uc" path="res://item_resource.gd" id="2_4qc6r"]
+
+[resource]
+script = ExtResource("2_4qc6r")
+item_name = "Tung Tung Tung Sahur"
+item_desc = "father of cappuccino assassino"
+item_texture = ExtResource("1_bsuxb")
+metadata/_custom_type_script = "uid://cyf51v3ywt1uc"

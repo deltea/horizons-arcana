@@ -48,7 +48,7 @@ var hand_tween: Tween
 var boxes: Array[int] = []
 var boxes_left: int = 0
 var total_earnings: int = 0
-var lives_left: int = 3
+var lives_left: int = 5
 var curr_box: BlindBox
 
 

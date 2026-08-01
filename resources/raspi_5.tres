@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="ItemResource" format=3 uid="uid://k1g1nvy0mnba"]
+
+[ext_resource type="Texture2D" uid="uid://ddwi8grdhxjpr" path="res://assets/images/prizes/raspi_5.png" id="1_tcul3"]
+[ext_resource type="Script" uid="uid://cyf51v3ywt1uc" path="res://item_resource.gd" id="2_mvgeo"]
+
+[resource]
+script = ExtResource("2_mvgeo")
+item_name = "Raspberry Pi 5"
+item_desc = "the ultimate minecraft server"
+item_rarity = 1
+item_texture = ExtResource("1_tcul3")
+metadata/_custom_type_script = "uid://cyf51v3ywt1uc"
