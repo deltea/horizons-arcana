@@ -18,7 +18,7 @@ const death_screen_scene = preload("res://scenes/ui/screens/death_screen.tscn")
 
 @export var phase_cashed_out_texture: Texture2D
 @export var phase_exploded_texture: Texture2D
-@export var phase_trashed: Texture2D
+@export var phase_trashed_texture: Texture2D
 
 @export var item_pool: Array[ItemResource]
 
@@ -214,6 +214,7 @@ func _input(event: InputEvent) -> void:
 
 
 func _on_timer_timeout() -> void:
+	set_curr_phase(phase_trashed_texture)
 	Events.box_trashed.emit()
 	Events.box_resolved.emit()
 	print("time's up! automatically trashing")
