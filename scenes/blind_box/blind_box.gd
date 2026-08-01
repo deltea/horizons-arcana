@@ -51,8 +51,9 @@ func toggle_open(is_open: bool) -> void:
 		await Events.input_close
 
 		open_tween.stop()
-		var tween := create_tween().set_trans(Tween.TRANS_EXPO).set_ease(Tween.EASE_OUT)
+		var tween := create_tween().set_trans(Tween.TRANS_EXPO).set_ease(Tween.EASE_OUT).set_parallel()
 		tween.tween_property(lid, "rotation_degrees:z", LID_CLOSED_ROT, 0.5)
+		tween.tween_callback(func() -> void: AudioManager.play_sound("open"))
 
 
 func animate_in() -> void:
