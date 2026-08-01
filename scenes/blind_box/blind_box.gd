@@ -21,9 +21,9 @@ func toggle_open(is_open: bool) -> void:
 
 	if is_open:
 		Events.cam_toggle_intense.emit(true)
-		Events.box_opened.emit(has_bomb)
 		await get_tree().create_timer(1.5).timeout
 		Events.cam_toggle_intense.emit(false)
+		Events.box_opened.emit(has_bomb)
 		item.animate_in()
 
 

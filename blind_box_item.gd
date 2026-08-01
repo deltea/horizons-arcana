@@ -16,9 +16,9 @@ func _ready() -> void:
 	item_sprite.scale = Vector3.ZERO
 
 	wobble_tween = create_tween().set_loops()
-	wobble_tween.tween_property(item_sprite, "rotation_degrees:z", 15.0, 0.0)
+	wobble_tween.tween_property(item_sprite, "rotation_degrees:z", 10.0, 0.0)
 	wobble_tween.tween_interval(0.5)
-	wobble_tween.tween_property(item_sprite, "rotation_degrees:z", -15.0, 0.0)
+	wobble_tween.tween_property(item_sprite, "rotation_degrees:z", -10.0, 0.0)
 	wobble_tween.tween_interval(0.5)
 
 
@@ -42,6 +42,7 @@ func animate_in() -> void:
 	tween.tween_interval(3.0)
 
 	# turn into money
+	tween.chain().tween_callback(func() -> void: Events.box_converted.emit())
 	tween.chain().tween_callback(func() -> void:
 		wobble_tween.stop()
 		is_opened = true

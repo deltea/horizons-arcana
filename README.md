@@ -1,6 +1,13 @@
 ## todo
 
-- [ ]
+- [ ] show item name
+- [ ] bomb items
+- [ ] inspection timer progress bar
+- [ ] decision timer progress bar
+- [ ] end screen
+- [ ] start screen
+- [ ] inspection logic
+- [ ] rarity logic
 
 ## order of events (flow)
 

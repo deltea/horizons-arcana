@@ -22,24 +22,38 @@ const blind_box_scene = preload("res://scenes/blind_box/blind_box.tscn")
 @onready var spotlight: TextureRect = $CanvasLayer/Spotlight
 @onready var earnings_label: Label3D = $Turntable/EarningsLabel
 
+@onready var item_info: PanelContainer = $CanvasLayer/ItemInfo
+@onready var item_name_label: Label = $CanvasLayer/ItemInfo/VBoxContainer/ItemNameLabel
+@onready var item_desc_label: Label = $CanvasLayer/ItemInfo/VBoxContainer/ItemDescLabel
+
+@onready var hearts_container: HBoxContainer = $CanvasLayer/HeartsContainer
+
 var curr_day: int = -1
 var hand_tween: Tween
 var boxes: Array[int] = []
 var boxes_left: int = 0
 var daily_earnings: int = 0
+var lives_left: int = 3
 
 
 func _ready() -> void:
 	Events.hand_extend.connect(_on_hand_extend)
 	Events.hand_retract.connect(_on_hand_retract)
 	Events.hand_grab.connect(_on_hand_grab)
+	Events.box_opened.connect(_on_box_opened)
 	Events.box_cashed_out.connect(_on_box_cashed_out)
+	Events.box_converted.connect(_on_box_converted)
+	Events.explode.connect(_on_explode)
+
+	item_info.hide()
 
 	next_day()
 
 
 func _process(dt: float) -> void:
 	turntable.rotate_y(dt * 0.1)
+	for child in hearts_container.get_children():
+		child.scale = sin(Clock.time * 5.0) * 0.05 * Vector2.ONE + Vector2.ONE
 
 
 func next_day() -> void:
@@ -71,6 +85,9 @@ func set_day(new_day: int) -> void:
 
 func spawn_blind_box() -> void:
 	var rand_item := item_pool.pick_random() as ItemResource
+	item_name_label.text = rand_item.item_name
+	item_desc_label.text = rand_item.item_desc
+
 	var blind_box := blind_box_scene.instantiate() as BlindBox
 	turntable.add_child(blind_box)
 	blind_box.set_info(rand_item.item_texture)
@@ -99,6 +116,21 @@ func _on_hand_grab() -> void:
 func _on_box_cashed_out(amount: int) -> void:
 	daily_earnings += amount
 	earnings_label.text = "Daily Earnings:\n$" + str(daily_earnings)
+
+
+func _on_box_converted() -> void:
+	item_info.hide()
+
+
+func _on_box_opened(_is_bomb: bool) -> void:
+	item_info.show()
+
+
+func _on_explode() -> void:
+	hearts_container.get_child(0).queue_free()
+	lives_left -= 1
+	if lives_left <= 0:
+		print("Game Over")
 
 
 func _input(event: InputEvent) -> void:

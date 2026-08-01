@@ -11,13 +11,27 @@
 [ext_resource type="Resource" uid="uid://bn1d4i18srwcl" path="res://resources/labubu.tres" id="5_trceg"]
 [ext_resource type="Resource" uid="uid://fl6vtvtaao8b" path="res://resources/minion.tres" id="6_jbj1t"]
 [ext_resource type="Texture2D" uid="uid://1q8prk7qtv7t" path="res://assets/images/spotlight.png" id="6_jkv2x"]
+[ext_resource type="Resource" uid="uid://bew6q40vxclpn" path="res://resources/goop.tres" id="7_0ld40"]
 [ext_resource type="Texture2D" uid="uid://bjl0lc5bw5nxj" path="res://assets/images/plant.png" id="7_tipki"]
 [ext_resource type="Texture2D" uid="uid://dfh666gpco7sq" path="res://assets/images/hand_open.png" id="9_85g3d"]
+[ext_resource type="Texture2D" uid="uid://d4gs6u2dy3l4a" path="res://assets/images/ui/heart.png" id="9_gqmmt"]
 [ext_resource type="Texture2D" uid="uid://c5wwo58wpibha" path="res://assets/images/trash_can.png" id="13_a8y0u"]
 [ext_resource type="PackedScene" uid="uid://b5x6g0xfspjy" path="res://scenes/calendar/calendar.tscn" id="13_trceg"]
 [ext_resource type="Texture2D" uid="uid://b4bobwh4pvrvi" path="res://assets/images/trash_can_lid.png" id="14_a8y0u"]
 [ext_resource type="PackedScene" uid="uid://b6iotncvwmytl" path="res://assets/models/board.blend" id="17_muem4"]
 [ext_resource type="Texture2D" uid="uid://ck0gpe2ikufce" path="res://assets/images/graph.png" id="18_dp3eg"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0ld40"]
+corner_detail = 1
+expand_margin_left = 16.0
+expand_margin_right = 16.0
+shadow_color = Color(0.48374587, 0.48374587, 0.4837457, 1)
+shadow_size = 1
+shadow_offset = Vector2(8, 8)
+anti_aliasing = false
+
+[sub_resource type="LabelSettings" id="LabelSettings_0ld40"]
+font_size = 12
 
 [sub_resource type="Gradient" id="Gradient_tipki"]
 offsets = PackedFloat32Array(0.05373832, 1)
@@ -67,7 +81,7 @@ font_weight = 999
 script = ExtResource("1_sugp2")
 hand_open_texture = ExtResource("9_85g3d")
 hand_closed_texture = ExtResource("3_choun")
-item_pool = Array[ExtResource("4_eb6dy")]([ExtResource("5_trceg"), ExtResource("6_jbj1t")])
+item_pool = Array[ExtResource("4_eb6dy")]([ExtResource("5_trceg"), ExtResource("6_jbj1t"), ExtResource("7_0ld40")])
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=2125474194]
 
@@ -78,6 +92,64 @@ offset_top = -80.0
 offset_right = 800.0
 offset_bottom = 460.0
 texture = ExtResource("6_jkv2x")
+
+[node name="ItemInfo" type="PanelContainer" parent="CanvasLayer" unique_id=2102266180]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -92.0
+offset_top = -96.0
+offset_right = 92.0
+offset_bottom = -30.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_0ld40")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/ItemInfo" unique_id=1762779191]
+layout_mode = 2
+
+[node name="ItemNameLabel" type="Label" parent="CanvasLayer/ItemInfo/VBoxContainer" unique_id=1992123676]
+layout_mode = 2
+horizontal_alignment = 1
+
+[node name="ItemDescLabel" type="Label" parent="CanvasLayer/ItemInfo/VBoxContainer" unique_id=920877794]
+layout_mode = 2
+text = "its the rarest labubu of them all"
+label_settings = SubResource("LabelSettings_0ld40")
+horizontal_alignment = 1
+
+[node name="ItemValueLabel" type="Label" parent="CanvasLayer/ItemInfo/VBoxContainer" unique_id=1204136733]
+layout_mode = 2
+text = "sells for $3000"
+label_settings = SubResource("LabelSettings_0ld40")
+horizontal_alignment = 1
+
+[node name="HeartsContainer" type="HBoxContainer" parent="CanvasLayer" unique_id=697469197]
+offset_left = 16.0
+offset_top = 16.0
+offset_right = 216.0
+offset_bottom = 48.0
+theme_override_constants/separation = 8
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/HeartsContainer" unique_id=2058964948]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+texture = ExtResource("9_gqmmt")
+expand_mode = 1
+
+[node name="TextureRect2" type="TextureRect" parent="CanvasLayer/HeartsContainer" unique_id=956928628]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+texture = ExtResource("9_gqmmt")
+expand_mode = 1
+
+[node name="TextureRect3" type="TextureRect" parent="CanvasLayer/HeartsContainer" unique_id=1677800246]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+texture = ExtResource("9_gqmmt")
+expand_mode = 1
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=109655450]
 environment = SubResource("Environment_38or4")
@@ -161,7 +233,7 @@ texture_filter = 0
 texture = ExtResource("9_85g3d")
 
 [node name="Calendar" parent="Turntable" unique_id=2000870305 instance=ExtResource("13_trceg")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 9, -4.4)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 10.52302, -4.4)
 
 [node name="DayLabel" type="Label3D" parent="Turntable/Calendar" unique_id=754942907]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.2999997, 0.4000001)
@@ -171,7 +243,7 @@ font = SubResource("SystemFont_trceg")
 font_size = 500
 
 [node name="TrashCan" type="Sprite3D" parent="Turntable" unique_id=1034928420]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 2.3, 0.2)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 2.3, 0.2)
 pixel_size = 0.04
 texture_filter = 0
 texture = ExtResource("13_a8y0u")

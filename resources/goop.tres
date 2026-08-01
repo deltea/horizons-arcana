@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="ItemResource" format=3 uid="uid://bew6q40vxclpn"]
+
+[ext_resource type="Texture2D" uid="uid://2osotr1u3hes" path="res://assets/images/prizes/goop.png" id="1_twllk"]
+[ext_resource type="Script" uid="uid://cyf51v3ywt1uc" path="res://item_resource.gd" id="2_idahh"]
+
+[resource]
+script = ExtResource("2_idahh")
+item_name = "Goop"
+item_desc = "goopy boy"
+item_texture = ExtResource("1_twllk")
+metadata/_custom_type_script = "uid://cyf51v3ywt1uc"
