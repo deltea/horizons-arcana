@@ -11,14 +11,24 @@ const BOMB_CHANCE = 0.4
 var has_bomb: bool = false
 var open_tween: Tween
 var item_resource: ItemResource
+var vibrate_tween: Tween
 
 
 func _ready() -> void:
 	Events.box_resolved.connect(_on_box_resolved)
+	Events.input_shake.connect(_on_input_shake)
 
 	has_bomb = randf() < BOMB_CHANCE
 	item.item_sprite.texture = item_resource.item_texture
 	item.item_resource = item_resource
+
+
+func _on_input_shake() -> void:
+	# print("shake")
+	scale = Vector3.ONE * 1.5
+	if vibrate_tween: vibrate_tween.kill()
+	vibrate_tween = create_tween().set_trans(Tween.TRANS_EXPO).set_ease(Tween.EASE_OUT).set_parallel()
+	vibrate_tween.tween_property(self, "scale", Vector3.ONE, 0.5)
 
 
 func toggle_open(is_open: bool) -> void:
