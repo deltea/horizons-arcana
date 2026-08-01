@@ -7,6 +7,8 @@ const HAND_RETRACT_Y = 2.5
 const BOX_COUNT_MIN = 4
 const BOX_COUNT_MAX = 6
 
+const BOX_COST = 10
+
 const blind_box_scene = preload("res://scenes/blind_box/blind_box.tscn")
 const phase_rect_scene = preload("res://scenes/ui/phase_rect.tscn")
 const death_screen_scene = preload("res://scenes/ui/screens/death_screen.tscn")
@@ -36,12 +38,13 @@ const death_screen_scene = preload("res://scenes/ui/screens/death_screen.tscn")
 @onready var hearts_container: HBoxContainer = $CanvasLayer/HeartsContainer
 @onready var flashbang: ColorRect = $CanvasLayer/Flashbang
 @onready var phase_container: VBoxContainer = $CanvasLayer/PhaseContainer
+@onready var timer_progress_bar: ProgressBar = $CanvasLayer/ProgressBar
 
 var curr_day: int = -1
 var hand_tween: Tween
 var boxes: Array[int] = []
 var boxes_left: int = 0
-var daily_earnings: int = 0
+var total_earnings: int = 0
 var lives_left: int = 3
 
 
@@ -71,6 +74,11 @@ func next_day() -> void:
 	set_day(curr_day + 1)
 
 	boxes_left = randi_range(BOX_COUNT_MIN, BOX_COUNT_MAX)
+
+	# spend money to buy more boxes
+	if curr_day != 0:
+		set_curr_cash(total_earnings - (boxes_left * BOX_COST))
+
 	for child in phase_container.get_children():
 		child.queue_free()
 	for i in range(boxes_left):
@@ -115,6 +123,11 @@ func set_curr_phase(texture: Texture2D) -> void:
 	phase_container.get_child(phase_container.get_child_count() - boxes_left).texture = texture
 
 
+func set_curr_cash(new_value: int) -> void:
+	total_earnings = new_value
+	earnings_label.text = "Daily Earnings:\n$" + str(total_earnings)
+
+
 func _on_hand_extend() -> void:
 	hand_tween = create_tween().set_trans(Tween.TRANS_EXPO).set_ease(Tween.EASE_OUT)
 	hand_tween.tween_property(hand, "position:y", HAND_EXTEND_Y, 0.5)
@@ -132,8 +145,7 @@ func _on_hand_grab() -> void:
 
 
 func _on_box_cashed_out(amount: int) -> void:
-	daily_earnings += amount
-	earnings_label.text = "Daily Earnings:\n$" + str(daily_earnings)
+	set_curr_cash(total_earnings + amount)
 	set_curr_phase(phase_cashed_out_texture)
 
 
@@ -142,8 +154,7 @@ func _on_box_converted() -> void:
 
 
 func _on_box_opened(is_bomb: bool) -> void:
-	if is_bomb:
-		return
+	if is_bomb: return
 	item_info.show()
 
 
@@ -174,3 +185,7 @@ func _input(event: InputEvent) -> void:
 		Events.input_open.emit()
 	if event.is_action_pressed("close"):
 		Events.input_close.emit()
+
+
+func _on_timer_timeout() -> void:
+	print("time's up! automatically trashing")

@@ -178,6 +178,13 @@ grow_vertical = 2
 theme_override_constants/separation = 8
 alignment = 1
 
+[node name="ProgressBar" type="ProgressBar" parent="CanvasLayer" unique_id=552927265]
+offset_left = 64.0
+offset_top = 304.0
+offset_right = 576.0
+offset_bottom = 331.0
+max_value = 1.0
+
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=109655450]
 environment = SubResource("Environment_38or4")
 
@@ -301,3 +308,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.099999905, -0.8000002, 0.1
 pixel_size = 0.0229029
 texture_filter = 0
 texture = ExtResource("18_dp3eg")
+
+[node name="Timer" type="Timer" parent="." unique_id=380873418]
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

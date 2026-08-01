@@ -1,7 +1,7 @@
 ## todo
 
-- [ ] inspection timer progress bar
-- [ ] decision timer progress bar
+- [ ] timer progress bar
+- [ ] overhead cost indicator
 - [ ] end screen
 - [ ] start screen
 - [ ] inspection logic

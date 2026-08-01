@@ -54,6 +54,7 @@ func animate_in() -> void:
 		await get_tree().create_timer(1.0).timeout
 		item_sprite.texture = exploded_bomb_texture
 		Events.flashbang.emit(2.0)
+		Events.cam_shake.emit(1.0)
 		Events.box_exploded.emit()
 		await get_tree().create_timer(2.0).timeout
 		Events.box_resolved.emit()
