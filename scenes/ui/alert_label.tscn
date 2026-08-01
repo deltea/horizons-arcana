@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://dr8gfj07xuvws" path="res://scenes/ui/alert_label.gd" id="1_k42gb"]
 
 [node name="AlertLabel" type="Label3D" unique_id=92976511]
+billboard = 1
 modulate = Color(1, 0, 0, 1)
 text = "spent $9281 to buy boxes"
 font_size = 160

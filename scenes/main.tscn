@@ -278,13 +278,13 @@ font = SubResource("SystemFont_trceg")
 font_size = 500
 
 [node name="TrashCan" type="Sprite3D" parent="Turntable" unique_id=1034928420]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 2.3, 0.2)
+transform = Transform3D(0.9659258, 0, -0.25881904, 0, 1, 0, 0.25881904, 0, 0.9659258, 6, 2.3, -1.8)
 pixel_size = 0.04
 texture_filter = 0
 texture = ExtResource("13_a8y0u")
 
 [node name="TrashCanLid" type="Node3D" parent="Turntable/TrashCan" unique_id=158259155]
-transform = Transform3D(0.70710677, 0.70710677, 0, -0.70710677, 0.70710677, 0, 0, 0, 1, 1.5, 1.7, 0)
+transform = Transform3D(0.99999994, 0, 0, 0, 0.99999994, 0, 0, 0, 1, 1.5, 1.7, 0)
 
 [node name="TrashCan2" type="Sprite3D" parent="Turntable/TrashCan/TrashCanLid" unique_id=2100012672]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, 0.3000002, 0)
@@ -311,7 +311,7 @@ texture_filter = 0
 texture = ExtResource("18_dp3eg")
 
 [node name="Timer" type="Timer" parent="." unique_id=380873418]
-wait_time = 0.1
+wait_time = 10.0
 one_shot = true
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

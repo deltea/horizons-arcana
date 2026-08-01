@@ -20,6 +20,7 @@ config/icon="res://icon.svg"
 Events="*uid://bwni2aitl4nyr"
 Clock="*uid://4y4aj55xbas0"
 Serial="*uid://c167nhnc18fkp"
+AudioManager="*uid://cjkijr0u73uot"
 
 [debug]
 
