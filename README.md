@@ -1,10 +1,10 @@
 ## todo
 
-- [ ] rarity logic
 - [ ] inspection logic
 - [ ] start screen
 - [ ] trashed animation
 - [ ] sfx and music
+- [x] rarity logic
 - [x] end screen
 - [x] overhead cost indicator
 - [x] timer progress bar
