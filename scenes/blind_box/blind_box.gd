@@ -3,6 +3,7 @@ class_name BlindBox extends Node3D
 
 const LID_CLOSED_ROT = 180.0
 const LID_OPEN_ROT = -75.0
+const BOMB_CHANCE = 0.5
 
 @onready var lid: MeshInstance3D = $box/Lid
 @onready var item: BlindBoxItem = $BlindBoxItem
@@ -14,6 +15,8 @@ var open_tween: Tween
 func _ready() -> void:
 	Events.box_resolved.connect(_on_box_resolved)
 
+	has_bomb = randf() < BOMB_CHANCE
+
 
 func toggle_open(is_open: bool) -> void:
 	open_tween = create_tween().set_trans(Tween.TRANS_EXPO).set_ease(Tween.EASE_OUT)
@@ -24,6 +27,8 @@ func toggle_open(is_open: bool) -> void:
 		await get_tree().create_timer(1.5).timeout
 		Events.cam_toggle_intense.emit(false)
 		Events.box_opened.emit(has_bomb)
+		if has_bomb:
+			item.set_bomb()
 		item.animate_in()
 
 

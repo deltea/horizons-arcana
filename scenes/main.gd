@@ -28,6 +28,7 @@ const blind_box_scene = preload("res://scenes/blind_box/blind_box.tscn")
 @onready var item_value_label: Label = $CanvasLayer/ItemInfo/VBoxContainer/ItemValueLabel
 
 @onready var hearts_container: HBoxContainer = $CanvasLayer/HeartsContainer
+@onready var flashbang: ColorRect = $CanvasLayer/Flashbang
 
 var curr_day: int = -1
 var hand_tween: Tween
@@ -44,9 +45,11 @@ func _ready() -> void:
 	Events.box_opened.connect(_on_box_opened)
 	Events.box_cashed_out.connect(_on_box_cashed_out)
 	Events.box_converted.connect(_on_box_converted)
-	Events.explode.connect(_on_explode)
+	Events.box_exploded.connect(_on_box_exploded)
+	Events.flashbang.connect(_on_flashbang)
 
 	item_info.hide()
+	flashbang.self_modulate.a = 0.0
 
 	next_day()
 
@@ -124,15 +127,23 @@ func _on_box_converted() -> void:
 	item_info.hide()
 
 
-func _on_box_opened(_is_bomb: bool) -> void:
+func _on_box_opened(is_bomb: bool) -> void:
+	if is_bomb:
+		return
 	item_info.show()
 
 
-func _on_explode() -> void:
+func _on_box_exploded() -> void:
 	hearts_container.get_child(0).queue_free()
 	lives_left -= 1
 	if lives_left <= 0:
 		print("Game Over")
+
+
+func _on_flashbang(duration: float) -> void:
+	flashbang.self_modulate.a = 1.0
+	var tween := create_tween().set_trans(Tween.TRANS_LINEAR).set_ease(Tween.EASE_IN_OUT)
+	tween.tween_property(flashbang, "self_modulate:a", 0.0, duration)
 
 
 func _input(event: InputEvent) -> void:

@@ -2,11 +2,15 @@
 
 [ext_resource type="Script" uid="uid://14ujhky81nv0" path="res://blind_box_item.gd" id="1_gbeo6"]
 [ext_resource type="Texture2D" uid="uid://6mg1lo7mypea" path="res://assets/images/prizes/labubu.png" id="1_qcx5g"]
+[ext_resource type="Texture2D" uid="uid://b83gext1v5rit" path="res://assets/images/bomb.png" id="2_e6qs8"]
 [ext_resource type="Texture2D" uid="uid://bcaa16hoo5603" path="res://assets/images/star.png" id="3_firwp"]
+[ext_resource type="Texture2D" uid="uid://dudelumsmw806" path="res://assets/images/explosion.png" id="3_g66he"]
 [ext_resource type="Texture2D" uid="uid://boxo180qvx61n" path="res://assets/images/money.png" id="4_u7ui2"]
 
 [node name="BlindBoxItem" type="Node3D" unique_id=1273752225]
 script = ExtResource("1_gbeo6")
+bomb_texture = ExtResource("2_e6qs8")
+exploded_bomb_texture = ExtResource("3_g66he")
 
 [node name="StarSprite" type="Sprite3D" parent="." unique_id=255761821]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.1)

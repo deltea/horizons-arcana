@@ -1,6 +1,9 @@
 class_name BlindBoxItem extends Node3D
 
 
+@export var bomb_texture: Texture2D
+@export var exploded_bomb_texture: Texture2D
+
 @onready var item_sprite: Sprite3D = $ItemSprite
 @onready var star_sprite: Sprite3D = $StarSprite
 @onready var star_sprite_2: Sprite3D = $StarSprite2
@@ -8,6 +11,7 @@ class_name BlindBoxItem extends Node3D
 
 var is_opened: bool = false
 var wobble_tween: Tween
+var is_bomb: bool = false
 
 
 func _ready() -> void:
@@ -33,13 +37,26 @@ func _process(dt: float) -> void:
 func animate_in() -> void:
 	star_sprite.scale = Vector3.ZERO
 
+	if is_bomb:
+		wobble_tween.stop()
+
 	var tween := create_tween().set_trans(Tween.TRANS_EXPO).set_ease(Tween.EASE_OUT).set_parallel()
 	tween.tween_property(self, "position:y", 4.0, 1.0).as_relative()
 	tween.tween_property(self, "scale", Vector3.ONE * 2.0, 1.0)
 	tween.tween_property(item_sprite, "scale", Vector3.ONE * 1.0, 1.0)
-	tween.tween_property(star_sprite, "scale", Vector3.ONE * 1.0, 1.0)
+	if not is_bomb:
+		tween.tween_property(star_sprite, "scale", Vector3.ONE * 1.0, 1.0)
 
 	tween.tween_interval(3.0)
+
+	if is_bomb:
+		await get_tree().create_timer(1.0).timeout
+		item_sprite.texture = exploded_bomb_texture
+		Events.flashbang.emit(2.0)
+		Events.box_exploded.emit()
+		await get_tree().create_timer(2.0).timeout
+		Events.box_resolved.emit()
+		return
 
 	# turn into money
 	tween.chain().tween_callback(func() -> void: Events.box_converted.emit())
@@ -59,3 +76,8 @@ func animate_in() -> void:
 	tween.chain().tween_callback(queue_free)
 	tween.chain().tween_callback(func() -> void: Events.box_resolved.emit())
 	tween.chain().tween_callback(func() -> void: Events.box_cashed_out.emit(100))
+
+
+func set_bomb() -> void:
+	is_bomb = true
+	item_sprite.texture = bomb_texture
