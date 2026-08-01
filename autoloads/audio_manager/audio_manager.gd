@@ -11,9 +11,12 @@ const sounds = {
 	"trash": preload("res://assets/audio/sfx/trash.wav"),
 	"intense": preload("res://assets/audio/sfx/intense.wav"),
 	"bomb": preload("res://assets/audio/sfx/bomb.wav"),
+	"squeak": preload("res://assets/audio/sfx/squeak.mp3"),
+	"tick": preload("res://assets/audio/sfx/tick.wav"),
 }
 
-const safe_sounds = {}
+const safe_sounds = {
+}
 const danger_sounds = {}
 
 @onready var music_player: AudioStreamPlayer = $MusicPlayer

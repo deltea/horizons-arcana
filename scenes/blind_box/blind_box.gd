@@ -24,6 +24,8 @@ func _ready() -> void:
 
 
 func _on_input_shake() -> void:
+	var rand = randf() > (0.3 if has_bomb else 0.7)
+	AudioManager.play_sound("tick" if rand else "squeak", 1.4)
 	# print("shake")
 	scale = Vector3.ONE * 1.5
 	if vibrate_tween: vibrate_tween.kill()
