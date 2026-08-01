@@ -94,9 +94,6 @@ func next_box() -> void:
 func set_day(new_day: int) -> void:
 	curr_day = new_day
 	day_label.text = str(curr_day + 1)
-	# spotlight.show()
-	# await get_tree().create_timer(1.5).timeout
-	# spotlight.hide()
 
 
 func spawn_blind_box() -> void:
@@ -106,8 +103,8 @@ func spawn_blind_box() -> void:
 	item_value_label.text = "$" + str(rand_item.item_price)
 
 	var blind_box := blind_box_scene.instantiate() as BlindBox
+	blind_box.item_resource = rand_item
 	turntable.add_child(blind_box)
-	blind_box.set_info(rand_item.item_texture)
 	blind_box.position.y = 14.2
 	await blind_box.animate_in()
 	await get_tree().create_timer(1.0).timeout

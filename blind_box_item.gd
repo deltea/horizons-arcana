@@ -12,6 +12,7 @@ class_name BlindBoxItem extends Node3D
 var is_opened: bool = false
 var wobble_tween: Tween
 var is_bomb: bool = false
+var item_resource: ItemResource
 
 
 func _ready() -> void:
@@ -74,7 +75,7 @@ func animate_in() -> void:
 	tween.chain().tween_callback(func() -> void: Events.hand_retract.emit())
 	tween.tween_property(self, "global_position:y", -2.0, 0.5).set_ease(Tween.EASE_IN)
 	tween.chain().tween_callback(queue_free)
-	tween.chain().tween_callback(func() -> void: Events.box_cashed_out.emit(100))
+	tween.chain().tween_callback(func() -> void: Events.box_cashed_out.emit(item_resource.item_price))
 	tween.chain().tween_callback(func() -> void: Events.box_resolved.emit())
 
 

@@ -7,5 +7,6 @@
 script = ExtResource("2_ogk82")
 item_name = "Minion"
 item_desc = "bello"
+item_price = 1
 item_texture = ExtResource("1_nuw1c")
 metadata/_custom_type_script = "uid://cyf51v3ywt1uc"

@@ -1,13 +1,18 @@
 ## todo
 
-- [ ] bomb items
 - [ ] inspection timer progress bar
 - [ ] decision timer progress bar
 - [ ] end screen
 - [ ] start screen
 - [ ] inspection logic
 - [ ] rarity logic
+- [x] bomb items
+- [x] death screen
 - [x] show item name
+
+## todo if theres time
+
+- [ ] discovering new items
 
 ## order of events (flow)
 

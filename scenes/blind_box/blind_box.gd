@@ -10,12 +10,15 @@ const BOMB_CHANCE = 0.5
 
 var has_bomb: bool = false
 var open_tween: Tween
+var item_resource: ItemResource
 
 
 func _ready() -> void:
 	Events.box_resolved.connect(_on_box_resolved)
 
 	has_bomb = randf() < BOMB_CHANCE
+	item.item_sprite.texture = item_resource.item_texture
+	item.item_resource = item_resource
 
 
 func toggle_open(is_open: bool) -> void:
@@ -39,10 +42,6 @@ func animate_in() -> void:
 	tween.tween_callback(func() -> void: Events.cam_shake.emit(0.3)).set_delay(1.1)
 	tween.tween_callback(func() -> void: Events.cam_shake.emit(0.3)).set_delay(1.4)
 	await tween.finished
-
-
-func set_info(item_texture: Texture2D) -> void:
-	item.item_sprite.texture = item_texture
 
 
 func _on_box_resolved() -> void:
