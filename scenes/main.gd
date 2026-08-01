@@ -102,6 +102,7 @@ func next_day() -> void:
 		boxes_left -= 1
 		print(str(boxes_left) + " boxes left")
 
+	await get_tree().create_timer(1.0).timeout
 	next_day()
 
 
