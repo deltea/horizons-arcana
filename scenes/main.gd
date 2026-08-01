@@ -9,6 +9,7 @@ const BOX_COUNT_MAX = 6
 
 const blind_box_scene = preload("res://scenes/blind_box/blind_box.tscn")
 const phase_rect_scene = preload("res://scenes/ui/phase_rect.tscn")
+const death_screen_scene = preload("res://scenes/ui/screens/death_screen.tscn")
 
 @export var hand_open_texture: Texture2D
 @export var hand_closed_texture: Texture2D
@@ -155,6 +156,9 @@ func _on_box_exploded() -> void:
 	lives_left -= 1
 	if lives_left <= 0:
 		print("Game Over")
+		Engine.time_scale = 0.0
+		var death_screen := death_screen_scene.instantiate() as DeathScreen
+		get_tree().current_scene.add_child(death_screen)
 
 
 func _on_flashbang(duration: float) -> void:
