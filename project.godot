@@ -19,6 +19,7 @@ config/icon="res://icon.svg"
 
 Events="*uid://bwni2aitl4nyr"
 Clock="*uid://4y4aj55xbas0"
+Serial="*uid://c167nhnc18fkp"
 
 [debug]
 
@@ -32,6 +33,10 @@ window/size/viewport_height=360
 window/size/window_width_override=1920
 window/size/window_height_override=1080
 window/stretch/mode="viewport"
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/gdserial/plugin.cfg")
 
 [input]
 
