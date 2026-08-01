@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://c6c087gjr2b4j"]
+
+[ext_resource type="Texture2D" uid="uid://cc5newida4nt8" path="res://assets/images/ui/dot.png" id="1_xapce"]
+
+[node name="PhaseRect" type="TextureRect" unique_id=322633294]
+custom_minimum_size = Vector2(24, 24)
+texture = ExtResource("1_xapce")
+expand_mode = 1

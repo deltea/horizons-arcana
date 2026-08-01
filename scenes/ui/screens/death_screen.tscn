@@ -1,0 +1,102 @@
+[gd_scene format=3 uid="uid://dxkwptif04ftm"]
+
+[ext_resource type="Texture2D" uid="uid://cmokdv1eaphq7" path="res://assets/images/ui/heaven.png" id="1_bru7i"]
+[ext_resource type="Script" uid="uid://bxoqe8cghhbqg" path="res://scenes/ui/screens/death_screen.gd" id="1_thyxi"]
+[ext_resource type="Shader" uid="uid://c8lxlclcwovkl" path="res://shaders/wavy.gdshader" id="2_2tioe"]
+[ext_resource type="FontFile" uid="uid://bqi6ej1jr02nq" path="res://assets/fonts/OptimusPrinceps.ttf" id="2_4mgng"]
+[ext_resource type="Texture2D" uid="uid://crm6t4cwj6d2w" path="res://assets/images/golden_labubu.png" id="3_gr1f2"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_thyxi"]
+shader = ExtResource("2_2tioe")
+shader_parameter/waveAmplitude = 0.10000000475
+shader_parameter/correctVertex = true
+shader_parameter/waveFrequency = 5.0000002375
+shader_parameter/verticalWave = false
+shader_parameter/keepTransparency = false
+shader_parameter/useTime = true
+shader_parameter/waveSpeed = 1.0
+shader_parameter/progress = 0.0
+shader_parameter/firstHalf = 0.5
+shader_parameter/secondHalf = 0.5
+shader_parameter/freezeFirstHalf = false
+shader_parameter/freezeSecondHalf = false
+
+[sub_resource type="FontVariation" id="FontVariation_4mgng"]
+base_font = ExtResource("2_4mgng")
+variation_embolden = 0.65
+
+[node name="DeathScreen" type="CanvasLayer" unique_id=1564011166]
+script = ExtResource("1_thyxi")
+
+[node name="Background" type="TextureRect" parent="." unique_id=1642566560]
+material = SubResource("ShaderMaterial_thyxi")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -32.0
+offset_right = -32.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_bru7i")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1597819990]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.40784314, 0.40784314, 0.40784314, 0.21568628)
+
+[node name="Labubu" type="TextureRect" parent="." unique_id=226043607]
+offset_left = 200.0
+offset_top = 56.0
+offset_right = 456.0
+offset_bottom = 312.0
+pivot_offset_ratio = Vector2(0.5, 0.5)
+texture = ExtResource("3_gr1f2")
+expand_mode = 1
+
+[node name="YouDiedLabel" type="RichTextLabel" parent="." unique_id=1931417666]
+offset_right = 640.0
+offset_bottom = 128.0
+theme_override_fonts/normal_font = SubResource("FontVariation_4mgng")
+theme_override_font_sizes/normal_font_size = 52
+bbcode_enabled = true
+text = "[wave]YOU DIED[/wave]"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="YouDiedLabel2" type="RichTextLabel" parent="." unique_id=1858850271]
+offset_top = 256.0
+offset_right = 640.0
+offset_bottom = 384.0
+theme_override_fonts/normal_font = SubResource("FontVariation_4mgng")
+theme_override_font_sizes/normal_font_size = 32
+bbcode_enabled = true
+text = "[shake]shake box to play again[/shake]"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label" type="Label" parent="." unique_id=1102628661]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -123.5
+offset_top = 88.0
+offset_right = 123.5
+offset_bottom = 111.0
+grow_horizontal = 2
+text = "and ascended to labubu heaven"
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="." unique_id=1324852801]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -123.5
+offset_top = 280.0
+offset_right = 123.5
+offset_bottom = 303.0
+grow_horizontal = 2
+text = "this is the good ending btw"
+horizontal_alignment = 1

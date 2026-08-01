@@ -4,13 +4,18 @@ extends Node3D
 const HAND_EXTEND_Y = 8.0
 const HAND_RETRACT_Y = 2.5
 
-const BOX_COUNT_MIN = 1
-const BOX_COUNT_MAX = 1
+const BOX_COUNT_MIN = 4
+const BOX_COUNT_MAX = 6
 
 const blind_box_scene = preload("res://scenes/blind_box/blind_box.tscn")
+const phase_rect_scene = preload("res://scenes/ui/phase_rect.tscn")
 
 @export var hand_open_texture: Texture2D
 @export var hand_closed_texture: Texture2D
+
+@export var phase_cashed_out_texture: Texture2D
+@export var phase_exploded_texture: Texture2D
+@export var phase_trashed: Texture2D
 
 @export var item_pool: Array[ItemResource]
 
@@ -29,6 +34,7 @@ const blind_box_scene = preload("res://scenes/blind_box/blind_box.tscn")
 
 @onready var hearts_container: HBoxContainer = $CanvasLayer/HeartsContainer
 @onready var flashbang: ColorRect = $CanvasLayer/Flashbang
+@onready var phase_container: VBoxContainer = $CanvasLayer/PhaseContainer
 
 var curr_day: int = -1
 var hand_tween: Tween
@@ -64,7 +70,12 @@ func next_day() -> void:
 	set_day(curr_day + 1)
 
 	boxes_left = randi_range(BOX_COUNT_MIN, BOX_COUNT_MAX)
-	for i in range(boxes_left): boxes.append(0)
+	for child in phase_container.get_children():
+		child.queue_free()
+	for i in range(boxes_left):
+		boxes.append(0)
+		var phase_rect := phase_rect_scene.instantiate() as TextureRect
+		phase_container.add_child(phase_rect)
 
 	while boxes_left > 0:
 		next_box()
@@ -102,6 +113,10 @@ func spawn_blind_box() -> void:
 	blind_box.toggle_open(true)
 
 
+func set_curr_phase(texture: Texture2D) -> void:
+	phase_container.get_child(phase_container.get_child_count() - boxes_left).texture = texture
+
+
 func _on_hand_extend() -> void:
 	hand_tween = create_tween().set_trans(Tween.TRANS_EXPO).set_ease(Tween.EASE_OUT)
 	hand_tween.tween_property(hand, "position:y", HAND_EXTEND_Y, 0.5)
@@ -121,6 +136,7 @@ func _on_hand_grab() -> void:
 func _on_box_cashed_out(amount: int) -> void:
 	daily_earnings += amount
 	earnings_label.text = "Daily Earnings:\n$" + str(daily_earnings)
+	set_curr_phase(phase_cashed_out_texture)
 
 
 func _on_box_converted() -> void:
@@ -135,6 +151,7 @@ func _on_box_opened(is_bomb: bool) -> void:
 
 func _on_box_exploded() -> void:
 	hearts_container.get_child(0).queue_free()
+	set_curr_phase(phase_exploded_texture)
 	lives_left -= 1
 	if lives_left <= 0:
 		print("Game Over")

@@ -74,8 +74,8 @@ func animate_in() -> void:
 	tween.chain().tween_callback(func() -> void: Events.hand_retract.emit())
 	tween.tween_property(self, "global_position:y", -2.0, 0.5).set_ease(Tween.EASE_IN)
 	tween.chain().tween_callback(queue_free)
-	tween.chain().tween_callback(func() -> void: Events.box_resolved.emit())
 	tween.chain().tween_callback(func() -> void: Events.box_cashed_out.emit(100))
+	tween.chain().tween_callback(func() -> void: Events.box_resolved.emit())
 
 
 func set_bomb() -> void:

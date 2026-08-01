@@ -15,6 +15,9 @@
 [ext_resource type="Texture2D" uid="uid://bjl0lc5bw5nxj" path="res://assets/images/plant.png" id="7_tipki"]
 [ext_resource type="Texture2D" uid="uid://dfh666gpco7sq" path="res://assets/images/hand_open.png" id="9_85g3d"]
 [ext_resource type="Texture2D" uid="uid://d4gs6u2dy3l4a" path="res://assets/images/ui/heart.png" id="9_gqmmt"]
+[ext_resource type="Texture2D" uid="uid://n58ut4aw14ru" path="res://assets/images/ui/skull.png" id="10_yc10j"]
+[ext_resource type="Texture2D" uid="uid://cc5newida4nt8" path="res://assets/images/ui/dot.png" id="11_jscy8"]
+[ext_resource type="Texture2D" uid="uid://ctt0pg8nfuqwp" path="res://assets/images/ui/money.png" id="11_pm3ni"]
 [ext_resource type="Texture2D" uid="uid://c5wwo58wpibha" path="res://assets/images/trash_can.png" id="13_a8y0u"]
 [ext_resource type="PackedScene" uid="uid://b5x6g0xfspjy" path="res://scenes/calendar/calendar.tscn" id="13_trceg"]
 [ext_resource type="Texture2D" uid="uid://b4bobwh4pvrvi" path="res://assets/images/trash_can_lid.png" id="14_a8y0u"]
@@ -81,6 +84,9 @@ font_weight = 999
 script = ExtResource("1_sugp2")
 hand_open_texture = ExtResource("9_85g3d")
 hand_closed_texture = ExtResource("3_choun")
+phase_cashed_out_texture = ExtResource("11_pm3ni")
+phase_exploded_texture = ExtResource("10_yc10j")
+phase_trashed = ExtResource("11_jscy8")
 item_pool = Array[ExtResource("4_eb6dy")]([ExtResource("5_trceg"), ExtResource("6_jbj1t"), ExtResource("7_0ld40")])
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=2125474194]
@@ -159,6 +165,18 @@ custom_minimum_size = Vector2(32, 32)
 layout_mode = 2
 texture = ExtResource("9_gqmmt")
 expand_mode = 1
+
+[node name="PhaseContainer" type="VBoxContainer" parent="CanvasLayer" unique_id=250366754]
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 16.0
+offset_top = -116.0
+offset_right = 40.0
+offset_bottom = 116.0
+grow_vertical = 2
+theme_override_constants/separation = 8
+alignment = 1
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=109655450]
 environment = SubResource("Environment_38or4")
@@ -270,7 +288,7 @@ texture = ExtResource("14_a8y0u")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.6, 10.2, -4)
 modulate = Color(0, 0, 0, 1)
 text = "Daily Earnings:
-$300"
+$0"
 font = SubResource("SystemFont_gqmmt")
 font_size = 160
 outline_size = 0
