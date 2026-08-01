@@ -190,6 +190,7 @@ func _on_hand_retract() -> void:
 
 
 func _on_hand_grab() -> void:
+	AudioManager.play_sound("bump")
 	hand.texture = hand_closed_texture
 	Events.cam_shake.emit(0.4)
 

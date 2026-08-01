@@ -9,6 +9,8 @@ const sounds = {
 	"collect": preload("res://assets/audio/sfx/collect.wav"),
 	"open": preload("res://assets/audio/sfx/open.wav"),
 	"trash": preload("res://assets/audio/sfx/trash.wav"),
+	"intense": preload("res://assets/audio/sfx/intense.wav"),
+	"bomb": preload("res://assets/audio/sfx/bomb.wav"),
 }
 
 const safe_sounds = {}

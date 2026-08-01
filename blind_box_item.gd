@@ -48,6 +48,8 @@ func animate_in() -> void:
 	if not is_bomb:
 		AudioManager.play_sound("collect")
 		tween.tween_property(star_sprite, "scale", Vector3.ONE * 1.0, 1.0)
+	else:
+		AudioManager.play_sound("bomb")
 
 	if is_bomb:
 		await get_tree().create_timer(1.0).timeout
