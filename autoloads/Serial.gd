@@ -1,7 +1,7 @@
 extends Node
 
 
-const PORT_NAME = "/dev/cu.usbmodem101"
+const PORT_NAME = "/dev/cu.usbmodem1101"
 const BAUD_RATE = 9600
 
 @onready var manager: GdSerialManager = GdSerialManager.new()
