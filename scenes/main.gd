@@ -255,6 +255,7 @@ func _input(event: InputEvent) -> void:
 
 func _on_timer_timeout() -> void:
 	set_curr_phase(phase_trashed_texture)
+	AudioManager.play_sound("trash")
 	Events.box_trashed.emit()
 	Events.box_resolved.emit()
 	print("time's up! automatically trashing")

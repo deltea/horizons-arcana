@@ -46,6 +46,7 @@ func animate_in() -> void:
 	tween.tween_property(self, "scale", Vector3.ONE * 2.0, 1.0)
 	tween.tween_property(item_sprite, "scale", Vector3.ONE * 1.0, 1.0)
 	if not is_bomb:
+		AudioManager.play_sound("collect")
 		tween.tween_property(star_sprite, "scale", Vector3.ONE * 1.0, 1.0)
 
 	if is_bomb:
@@ -54,6 +55,7 @@ func animate_in() -> void:
 		Events.flashbang.emit(2.0)
 		Events.cam_shake.emit(1.0)
 		Events.box_exploded.emit()
+		AudioManager.play_sound("explosion")
 		await get_tree().create_timer(2.0).timeout
 		Events.box_resolved.emit()
 		return
