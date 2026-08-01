@@ -34,6 +34,7 @@
 [ext_resource type="Resource" uid="uid://l3nwcs8ke3ur" path="res://resources/shawarma.tres" id="18_qkpxi"]
 [ext_resource type="Resource" uid="uid://ctc2ia6blh14s" path="res://resources/anson.tres" id="19_dgi5k"]
 [ext_resource type="Resource" uid="uid://ctb6wa35wnd2n" path="res://resources/daamin.tres" id="20_j8jky"]
+[ext_resource type="Resource" uid="uid://dr0v5r1vpf605" path="res://resources/renran.tres" id="21_j8jky"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0ld40"]
 corner_detail = 1
@@ -107,7 +108,7 @@ hand_closed_texture = ExtResource("3_choun")
 phase_cashed_out_texture = ExtResource("11_pm3ni")
 phase_exploded_texture = ExtResource("10_yc10j")
 phase_trashed_texture = ExtResource("6_pm3ni")
-item_pool = Array[ExtResource("4_eb6dy")]([ExtResource("5_trceg"), ExtResource("6_jbj1t"), ExtResource("7_0ld40"), ExtResource("11_og1vs"), ExtResource("12_2wyq8"), ExtResource("13_vxglm"), ExtResource("14_yq6so"), ExtResource("15_fv21b"), ExtResource("16_tel4y"), ExtResource("17_qkpxi"), ExtResource("18_qkpxi"), ExtResource("19_dgi5k"), ExtResource("20_j8jky")])
+item_pool = Array[ExtResource("4_eb6dy")]([ExtResource("5_trceg"), ExtResource("6_jbj1t"), ExtResource("7_0ld40"), ExtResource("11_og1vs"), ExtResource("12_2wyq8"), ExtResource("13_vxglm"), ExtResource("14_yq6so"), ExtResource("15_fv21b"), ExtResource("16_tel4y"), ExtResource("17_qkpxi"), ExtResource("18_qkpxi"), ExtResource("19_dgi5k"), ExtResource("20_j8jky"), ExtResource("21_j8jky")])
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=2125474194]
 

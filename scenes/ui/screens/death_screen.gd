@@ -10,6 +10,8 @@ class_name DeathScreen extends CanvasLayer
 func _ready() -> void:
 	Events.input_shake.connect(_on_input_shake)
 
+	AudioManager.play_sound("flashbang")
+
 	labubu.scale = Vector2.ZERO
 	labubu.self_modulate.a = 0.0
 	flashbang.self_modulate.a = 1.0

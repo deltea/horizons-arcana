@@ -14,6 +14,7 @@ const sounds = {
 	"squeak": preload("res://assets/audio/sfx/squeak.mp3"),
 	"tick": preload("res://assets/audio/sfx/tick.wav"),
 	"cha_ching": preload("res://assets/audio/sfx/cha_ching.wav"),
+	"flashbang": preload("res://assets/audio/sfx/flashbang.mp3"),
 }
 
 @onready var music_player: AudioStreamPlayer = $MusicPlayer
