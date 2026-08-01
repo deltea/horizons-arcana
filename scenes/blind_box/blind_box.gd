@@ -44,6 +44,10 @@ func animate_in() -> void:
 	await tween.finished
 
 
+func inspect() -> void:
+	print("ooh now you know more info")
+
+
 func _on_box_resolved() -> void:
 	# queue_free()
 	var tween := create_tween().set_trans(Tween.TRANS_EXPO).set_ease(Tween.EASE_IN)

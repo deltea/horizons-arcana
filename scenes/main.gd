@@ -40,12 +40,15 @@ const death_screen_scene = preload("res://scenes/ui/screens/death_screen.tscn")
 @onready var phase_container: VBoxContainer = $CanvasLayer/PhaseContainer
 @onready var timer_progress_bar: ProgressBar = $CanvasLayer/ProgressBar
 
+@onready var timer: Timer = $Timer
+
 var curr_day: int = -1
 var hand_tween: Tween
 var boxes: Array[int] = []
 var boxes_left: int = 0
 var total_earnings: int = 0
 var lives_left: int = 3
+var curr_box: BlindBox
 
 
 func _ready() -> void:
@@ -58,7 +61,12 @@ func _ready() -> void:
 	Events.box_exploded.connect(_on_box_exploded)
 	Events.flashbang.connect(_on_flashbang)
 
+	Events.input_open.connect(_on_input_open)
+	Events.input_close.connect(_on_input_close)
+	Events.input_shake.connect(_on_input_shake)
+
 	item_info.hide()
+	timer_progress_bar.hide()
 	flashbang.self_modulate.a = 0.0
 
 	next_day()
@@ -68,6 +76,8 @@ func _process(dt: float) -> void:
 	turntable.rotate_y(dt * 0.1)
 	for child in hearts_container.get_children():
 		child.scale = sin(Clock.time * 5.0) * 0.05 * Vector2.ONE + Vector2.ONE
+
+	timer_progress_bar.value = timer.time_left / timer.wait_time
 
 
 func next_day() -> void:
@@ -111,12 +121,13 @@ func spawn_blind_box() -> void:
 	item_value_label.text = "$" + str(rand_item.item_price)
 
 	var blind_box := blind_box_scene.instantiate() as BlindBox
+	curr_box = blind_box
 	blind_box.item_resource = rand_item
 	turntable.add_child(blind_box)
 	blind_box.position.y = 14.2
 	await blind_box.animate_in()
-	await get_tree().create_timer(1.0).timeout
-	blind_box.toggle_open(true)
+	timer.start()
+	timer_progress_bar.show()
 
 
 func set_curr_phase(texture: Texture2D) -> void:
@@ -163,7 +174,6 @@ func _on_box_exploded() -> void:
 	set_curr_phase(phase_exploded_texture)
 	lives_left -= 1
 	if lives_left <= 0:
-		print("Game Over")
 		Engine.time_scale = 0.0
 		var death_screen := death_screen_scene.instantiate() as DeathScreen
 		get_tree().current_scene.add_child(death_screen)
@@ -173,6 +183,22 @@ func _on_flashbang(duration: float) -> void:
 	flashbang.self_modulate.a = 1.0
 	var tween := create_tween().set_trans(Tween.TRANS_LINEAR).set_ease(Tween.EASE_IN_OUT)
 	tween.tween_property(flashbang, "self_modulate:a", 0.0, duration)
+
+
+func _on_input_open() -> void:
+	if timer.is_stopped(): return
+	curr_box.toggle_open(true)
+	timer.stop()
+	timer_progress_bar.hide()
+
+
+func _on_input_close() -> void:
+	pass
+
+
+func _on_input_shake() -> void:
+	if timer.is_stopped(): return
+	curr_box.inspect()
 
 
 func _input(event: InputEvent) -> void:
@@ -188,4 +214,7 @@ func _input(event: InputEvent) -> void:
 
 
 func _on_timer_timeout() -> void:
+	Events.box_trashed.emit()
+	Events.box_resolved.emit()
 	print("time's up! automatically trashing")
+	timer_progress_bar.hide()

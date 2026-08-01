@@ -310,5 +310,6 @@ texture_filter = 0
 texture = ExtResource("18_dp3eg")
 
 [node name="Timer" type="Timer" parent="." unique_id=380873418]
+one_shot = true
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
