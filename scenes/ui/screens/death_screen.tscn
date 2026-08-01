@@ -103,19 +103,37 @@ grow_horizontal = 2
 text = "this is the good ending btw"
 horizontal_alignment = 1
 
-[node name="Label3" type="Label" parent="." unique_id=474134701]
+[node name="RevenueLabel" type="Label" parent="." unique_id=474134701]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -84.0
-offset_top = -11.5
-offset_right = 84.0
-offset_bottom = 11.5
+offset_left = -304.0
+offset_top = -24.5
+offset_right = -88.0
+offset_bottom = 24.5
 grow_horizontal = 2
 grow_vertical = 2
-text = "total revenue made: $10000"
+text = "total revenue made: 
+$10000"
+horizontal_alignment = 1
+
+[node name="SurvivalLabel" type="Label" parent="." unique_id=819067407]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 88.0
+offset_top = -24.5
+offset_right = 304.0
+offset_bottom = 24.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "days survived: 
+9"
+horizontal_alignment = 1
 
 [node name="Flashbang" type="ColorRect" parent="." unique_id=820534050]
 self_modulate = Color(1, 1, 1, 0)

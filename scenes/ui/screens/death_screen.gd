@@ -3,6 +3,8 @@ class_name DeathScreen extends CanvasLayer
 
 @onready var labubu: TextureRect = $Labubu
 @onready var flashbang: ColorRect = $Flashbang
+@onready var revenue_label: Label = $RevenueLabel
+@onready var survival_label: Label = $SurvivalLabel
 
 
 func _ready() -> void:
@@ -14,3 +16,8 @@ func _ready() -> void:
 	tween.tween_property(flashbang, "self_modulate:a", 0.0, 3.0)
 	tween.tween_property(labubu, "scale", Vector2.ONE, 10.0)
 	tween.tween_property(labubu, "self_modulate:a", 1.0, 10.0)
+
+
+func set_info(total_revenue: int, days_survived: int) -> void:
+	revenue_label.text = "total revenue:\n$" + str(total_revenue)
+	survival_label.text = "days survived:\n" + str(days_survived)

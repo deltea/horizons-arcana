@@ -177,6 +177,7 @@ func _on_box_exploded() -> void:
 		Engine.time_scale = 0.0
 		var death_screen := death_screen_scene.instantiate() as DeathScreen
 		get_tree().current_scene.add_child(death_screen)
+		death_screen.set_info(total_earnings, curr_day + 1)
 
 
 func _on_flashbang(duration: float) -> void:
