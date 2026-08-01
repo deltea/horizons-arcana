@@ -6,3 +6,4 @@
 resource_name = "box"
 cull_mode = 2
 albedo_texture = ExtResource("1_l76cw")
+texture_filter = 0
