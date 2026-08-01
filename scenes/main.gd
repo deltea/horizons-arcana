@@ -122,7 +122,7 @@ func set_day(new_day: int) -> void:
 
 
 func spawn_blind_box() -> void:
-	var rand_item := item_pool.pick_random() as ItemResource
+	var rand_item := get_random_item()
 	item_name_label.text = rand_item.item_name
 	item_desc_label.text = rand_item.item_desc
 	item_value_label.text = "$" + str(rand_item.item_price)
@@ -135,6 +135,37 @@ func spawn_blind_box() -> void:
 	await blind_box.animate_in()
 	timer.start()
 	timer_progress_bar.show()
+
+
+func get_rarity_weight(rarity: ItemResource.ItemRarity) -> int:
+	match rarity:
+		ItemResource.ItemRarity.COMMON:
+			return 50
+		ItemResource.ItemRarity.UNCOMMON:
+			return 30
+		ItemResource.ItemRarity.RARE:
+			return 15
+		ItemResource.ItemRarity.LEGENDARY:
+			return 4
+		ItemResource.ItemRarity.GODLY:
+			return 1
+		_:
+			return 0
+
+
+func get_random_item() -> ItemResource:
+	var total_weight := 0
+	for item in item_pool:
+		total_weight += get_rarity_weight(item.item_rarity)
+
+	var rand_value := randi_range(0, total_weight - 1)
+	var curr_weight := 0
+	for item in item_pool:
+		curr_weight += get_rarity_weight(item.item_rarity)
+		if rand_value <= curr_weight:
+			return item
+
+	return item_pool.pick_random() as ItemResource
 
 
 func set_curr_phase(texture: Texture2D) -> void:
