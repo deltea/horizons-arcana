@@ -1,7 +1,7 @@
 class_name BlindBox extends Node3D
 
 
-const LID_CLOSED_ROT = 180.0
+const LID_CLOSED_ROT = 90.0
 const LID_OPEN_ROT = -75.0
 const BOMB_CHANCE = 0.4
 
@@ -35,6 +35,12 @@ func toggle_open(is_open: bool) -> void:
 		if has_bomb:
 			item.set_bomb()
 		item.animate_in()
+
+		await Events.input_close
+
+		open_tween.stop()
+		var tween := create_tween().set_trans(Tween.TRANS_EXPO).set_ease(Tween.EASE_OUT)
+		tween.tween_property(lid, "rotation_degrees:z", LID_CLOSED_ROT, 0.5)
 
 
 func animate_in() -> void:

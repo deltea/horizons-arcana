@@ -58,11 +58,13 @@ func animate_in() -> void:
 		Events.cam_shake.emit(1.0)
 		Events.box_exploded.emit()
 		AudioManager.play_sound("explosion")
-		await get_tree().create_timer(2.0).timeout
+		# await get_tree().create_timer(2.0).timeout
+		await Events.input_close
 		Events.box_resolved.emit()
 		return
 
-	tween.tween_interval(3.0)
+	tween.tween_interval(1.0)
+	tween.tween_await(Events.input_close)
 
 	# turn into money
 	tween.chain().tween_callback(func() -> void: Events.box_converted.emit())
