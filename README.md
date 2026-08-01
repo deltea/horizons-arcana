@@ -1,12 +1,13 @@
 ## todo
 
-- [ ] timer progress bar
-- [ ] overhead cost indicator
+- [ ] trashed animation
 - [ ] end screen
 - [ ] start screen
 - [ ] inspection logic
 - [ ] rarity logic
 - [ ] sfx and music
+- [x] overhead cost indicator
+- [x] timer progress bar
 - [x] bomb items
 - [x] death screen
 - [x] show item name

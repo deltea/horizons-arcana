@@ -12,6 +12,7 @@ const BOX_COST = 10
 const blind_box_scene = preload("res://scenes/blind_box/blind_box.tscn")
 const phase_rect_scene = preload("res://scenes/ui/phase_rect.tscn")
 const death_screen_scene = preload("res://scenes/ui/screens/death_screen.tscn")
+const alert_label_scene = preload("res://scenes/ui/alert_label.tscn")
 
 @export var hand_open_texture: Texture2D
 @export var hand_closed_texture: Texture2D
@@ -88,6 +89,11 @@ func next_day() -> void:
 	# spend money to buy more boxes
 	if curr_day != 0:
 		set_curr_cash(total_earnings - (boxes_left * BOX_COST))
+		var alert_label := alert_label_scene.instantiate() as AlertLabel
+		alert_label.position = earnings_label.position
+		alert_label.position.z += 2.0
+		alert_label.text = "spent $" + str(boxes_left * BOX_COST) + " to buy more boxes"
+		turntable.add_child(alert_label)
 
 	for child in phase_container.get_children():
 		child.queue_free()

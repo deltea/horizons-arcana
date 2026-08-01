@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://c6ji4bls3i5tw"]
+
+[ext_resource type="Script" uid="uid://dr8gfj07xuvws" path="res://scenes/ui/alert_label.gd" id="1_k42gb"]
+
+[node name="AlertLabel" type="Label3D" unique_id=92976511]
+modulate = Color(1, 0, 0, 1)
+text = "spent $9281 to buy boxes"
+font_size = 160
+outline_size = 0
+script = ExtResource("1_k42gb")
