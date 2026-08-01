@@ -2,8 +2,8 @@
 
 - [ ] inspection logic
 - [ ] start screen
-- [ ] trashed animation
 - [ ] sfx and music
+- [x] trashed animation
 - [x] rarity logic
 - [x] end screen
 - [x] overhead cost indicator

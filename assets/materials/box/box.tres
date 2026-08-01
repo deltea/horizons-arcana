@@ -1,0 +1,8 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://du6wd8kkvxqux"]
+
+[ext_resource type="Texture2D" uid="uid://cpa3vh4b17txy" path="res://assets/textures/box/box.png" id="1_l76cw"]
+
+[resource]
+resource_name = "box"
+cull_mode = 2
+albedo_texture = ExtResource("1_l76cw")

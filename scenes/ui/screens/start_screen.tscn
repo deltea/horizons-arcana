@@ -1,3 +1,24 @@
 [gd_scene format=3 uid="uid://oqri3qtko7v4"]
 
+[ext_resource type="PackedScene" uid="uid://gmlodv1asivx" path="res://scenes/camera/camera.tscn" id="2_xgb5i"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_xgb5i"]
+ground_bottom_color = Color(1, 1, 1, 1)
+
+[sub_resource type="Sky" id="Sky_yeyj0"]
+sky_material = SubResource("ProceduralSkyMaterial_xgb5i")
+
+[sub_resource type="Environment" id="Environment_yeyj0"]
+background_mode = 2
+sky = SubResource("Sky_yeyj0")
+
 [node name="StartScreen" type="CanvasLayer" unique_id=643918428]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=507643847]
+environment = SubResource("Environment_yeyj0")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1282272453]
+transform = Transform3D(0.70710677, 0.5, -0.50000006, 0, 0.7071068, 0.70710677, 0.7071068, -0.49999997, 0.5, 0, 15, 0)
+directional_shadow_mode = 0
+
+[node name="Camera3D" parent="." unique_id=1882948444 instance=ExtResource("2_xgb5i")]

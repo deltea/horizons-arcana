@@ -18,6 +18,7 @@
 [ext_resource type="Texture2D" uid="uid://d4gs6u2dy3l4a" path="res://assets/images/ui/heart.png" id="9_gqmmt"]
 [ext_resource type="Texture2D" uid="uid://n58ut4aw14ru" path="res://assets/images/ui/skull.png" id="10_yc10j"]
 [ext_resource type="Texture2D" uid="uid://ctt0pg8nfuqwp" path="res://assets/images/ui/money.png" id="11_pm3ni"]
+[ext_resource type="FontFile" uid="uid://bqi6ej1jr02nq" path="res://assets/fonts/OptimusPrinceps.ttf" id="12_y6deb"]
 [ext_resource type="Texture2D" uid="uid://c5wwo58wpibha" path="res://assets/images/trash_can.png" id="13_a8y0u"]
 [ext_resource type="PackedScene" uid="uid://b5x6g0xfspjy" path="res://scenes/calendar/calendar.tscn" id="13_trceg"]
 [ext_resource type="Texture2D" uid="uid://b4bobwh4pvrvi" path="res://assets/images/trash_can_lid.png" id="14_a8y0u"]
@@ -27,11 +28,17 @@
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0ld40"]
 corner_detail = 1
 expand_margin_left = 16.0
+expand_margin_top = 8.0
 expand_margin_right = 16.0
+expand_margin_bottom = 8.0
 shadow_color = Color(0.48374587, 0.48374587, 0.4837457, 1)
 shadow_size = 1
 shadow_offset = Vector2(8, 8)
 anti_aliasing = false
+
+[sub_resource type="LabelSettings" id="LabelSettings_pm3ni"]
+font = ExtResource("12_y6deb")
+font_size = 24
 
 [sub_resource type="LabelSettings" id="LabelSettings_0ld40"]
 font_size = 12
@@ -46,7 +53,7 @@ fractal_octaves = 4
 fractal_gain = 0.3
 fractal_weighted_strength = 0.24
 
-[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_tipki"]
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_pm3ni"]
 width = 1024
 height = 1024
 noise = SubResource("FastNoiseLite_tipki")
@@ -56,16 +63,16 @@ seamless = true
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_o5qli"]
 sky_top_color = Color(0.99215686, 0.43137255, 0.44705883, 1)
 sky_horizon_color = Color(0.14901961, 0.5137255, 0.65882355, 1)
-sky_cover = SubResource("NoiseTexture2D_tipki")
+sky_cover = SubResource("NoiseTexture2D_pm3ni")
 ground_bottom_color = Color(0.14901961, 0.5137255, 0.65882355, 1)
 ground_horizon_color = Color(0.14901961, 0.5137255, 0.65882355, 1)
 
-[sub_resource type="Sky" id="Sky_sgp6g"]
+[sub_resource type="Sky" id="Sky_y6deb"]
 sky_material = SubResource("ProceduralSkyMaterial_o5qli")
 
 [sub_resource type="Environment" id="Environment_38or4"]
 background_mode = 2
-sky = SubResource("Sky_sgp6g")
+sky = SubResource("Sky_y6deb")
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_tefeu"]
 size = Vector2(20, 20)
@@ -127,6 +134,8 @@ layout_mode = 2
 
 [node name="ItemNameLabel" type="Label" parent="CanvasLayer/ItemInfo/VBoxContainer" unique_id=1992123676]
 layout_mode = 2
+text = "asdfasdfasdfasdf"
+label_settings = SubResource("LabelSettings_pm3ni")
 horizontal_alignment = 1
 
 [node name="ItemDescLabel" type="Label" parent="CanvasLayer/ItemInfo/VBoxContainer" unique_id=920877794]

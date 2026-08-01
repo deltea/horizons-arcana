@@ -6,7 +6,6 @@
 [resource]
 script = ExtResource("2_idahh")
 item_name = "Goop"
-item_desc = "goopy boy"
-item_price = 10
+item_desc = "goopy boy stay goopy"
 item_texture = ExtResource("1_twllk")
 metadata/_custom_type_script = "uid://cyf51v3ywt1uc"

@@ -13,7 +13,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 [node name="box" parent="." unique_id=577873160 instance=ExtResource("2_do4vy")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 
-[node name="Lid" parent="box" index="1" unique_id=757521748]
+[node name="Lid" parent="box" index="1" unique_id=2050709534]
 transform = Transform3D(-8.742278e-08, -1, 0, 1, -8.742278e-08, 0, 0, 0, 1, 1.0000001, 1, 0)
 
 [editable path="box"]

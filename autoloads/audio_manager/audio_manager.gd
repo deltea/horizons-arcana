@@ -5,6 +5,9 @@ const music = preload("res://assets/audio/music/mimei no radio kara.mp3")
 
 const sounds = {}
 
+const safe_sounds = {}
+const danger_sounds = {}
+
 @onready var music_player: AudioStreamPlayer = $MusicPlayer
 
 

@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c4jq6y3ko8av4"
-path.s3tc="res://.godot/imported/face.png-53405e2227d9622ec7f32fc1d297f5c2.s3tc.ctex"
+uid="uid://cpa3vh4b17txy"
+path.s3tc="res://.godot/imported/box.png-ed37a8a4f5dc1df8906e5a456dde1a94.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://assets/images/face.png"
-dest_files=["res://.godot/imported/face.png-53405e2227d9622ec7f32fc1d297f5c2.s3tc.ctex"]
+source_file="res://assets/textures/box/box.png"
+dest_files=["res://.godot/imported/box.png-ed37a8a4f5dc1df8906e5a456dde1a94.s3tc.ctex"]
 
 [params]
 

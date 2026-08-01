@@ -125,7 +125,8 @@ func spawn_blind_box() -> void:
 	var rand_item := get_random_item()
 	item_name_label.text = rand_item.item_name
 	item_desc_label.text = rand_item.item_desc
-	item_value_label.text = "$" + str(rand_item.item_price)
+	var rarity_name := ItemResource.ItemRarity.keys()[rand_item.item_rarity] as String
+	item_value_label.text = rarity_name + "  /  $" + str(rand_item.item_price)
 
 	var blind_box := blind_box_scene.instantiate() as BlindBox
 	curr_box = blind_box
