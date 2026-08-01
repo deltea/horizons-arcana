@@ -3,7 +3,11 @@ extends Node
 
 const music = preload("res://assets/audio/music/mimei no radio kara.mp3")
 
-const sounds = {}
+const sounds = {
+	"bump": preload("res://assets/audio/sfx/bump.wav"),
+	"explosion": preload("res://assets/audio/sfx/explosion.wav"),
+	"collect": preload("res://assets/audio/sfx/collect.wav"),
+}
 
 const safe_sounds = {}
 const danger_sounds = {}

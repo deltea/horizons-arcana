@@ -48,8 +48,6 @@ func animate_in() -> void:
 	if not is_bomb:
 		tween.tween_property(star_sprite, "scale", Vector3.ONE * 1.0, 1.0)
 
-	tween.tween_interval(3.0)
-
 	if is_bomb:
 		await get_tree().create_timer(1.0).timeout
 		item_sprite.texture = exploded_bomb_texture
@@ -59,6 +57,8 @@ func animate_in() -> void:
 		await get_tree().create_timer(2.0).timeout
 		Events.box_resolved.emit()
 		return
+
+	tween.tween_interval(3.0)
 
 	# turn into money
 	tween.chain().tween_callback(func() -> void: Events.box_converted.emit())
