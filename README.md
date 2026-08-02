@@ -2,6 +2,9 @@ in this game, your job is to buy sketchy blind boxes from the black market, and 
 this game is played with a physical blind box, that you can interact with
 shake the box to get more information about what's inside
 
+play a keyboard friendly version here:
+[https://deltea.itch.io/boxy-blinders](https://deltea.itch.io/boxy-blinders)
+
 ## todo
 
 - [ ] inspection logic
