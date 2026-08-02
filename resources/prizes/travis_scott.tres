@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="ItemResource" format=3 uid="uid://c3rwkjsweaqmc"]
+
+[ext_resource type="Texture2D" uid="uid://m5601v5vhtc8" path="res://assets/images/prizes/travis_scott.png" id="1_mugxq"]
+[ext_resource type="Script" uid="uid://cyf51v3ywt1uc" path="res://item_resource.gd" id="2_ocj2n"]
+
+[resource]
+script = ExtResource("2_ocj2n")
+item_name = "Travis Scott"
+item_desc = "Jacques Bermon Webster II (born April 30, 1991), known professionally as Travis Scott, is an American rapper, singer, songwriter, and record producer."
+item_price = 250
+item_rarity = 2
+item_texture = ExtResource("1_mugxq")
+metadata/_custom_type_script = "uid://cyf51v3ywt1uc"

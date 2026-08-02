@@ -37,6 +37,7 @@
 [ext_resource type="Resource" uid="uid://ctc2ia6blh14s" path="res://resources/prizes/anson.tres" id="19_dgi5k"]
 [ext_resource type="Resource" uid="uid://ctb6wa35wnd2n" path="res://resources/prizes/daamin.tres" id="20_j8jky"]
 [ext_resource type="Resource" uid="uid://dr0v5r1vpf605" path="res://resources/prizes/renran.tres" id="21_j8jky"]
+[ext_resource type="Resource" uid="uid://c3rwkjsweaqmc" path="res://resources/prizes/travis_scott.tres" id="24_5poiv"]
 [ext_resource type="Texture2D" uid="uid://r5dj42bayb0g" path="res://assets/images/progress_bar_under.png" id="27_c6pm6"]
 [ext_resource type="Texture2D" uid="uid://p76st4ah73se" path="res://assets/images/progress_bar_over.png" id="27_pibwh"]
 [ext_resource type="Texture2D" uid="uid://vlkkts0a2sd4" path="res://assets/images/progress_bar_progress.png" id="29_5he1u"]
@@ -119,7 +120,7 @@ hand_closed_texture = ExtResource("3_choun")
 phase_cashed_out_texture = ExtResource("11_pm3ni")
 phase_exploded_texture = ExtResource("10_yc10j")
 phase_trashed_texture = ExtResource("6_pm3ni")
-item_pool = Array[ExtResource("4_eb6dy")]([ExtResource("17_qkpxi"), ExtResource("9_fuf3a"), ExtResource("19_dgi5k"), ExtResource("20_j8jky"), ExtResource("16_tel4y"), ExtResource("7_0ld40"), ExtResource("12_2wyq8"), ExtResource("5_trceg"), ExtResource("6_jbj1t"), ExtResource("17_pibwh"), ExtResource("15_fv21b"), ExtResource("13_vxglm"), ExtResource("14_yq6so"), ExtResource("21_j8jky"), ExtResource("18_qkpxi"), ExtResource("11_og1vs")])
+item_pool = Array[ExtResource("4_eb6dy")]([ExtResource("17_qkpxi"), ExtResource("9_fuf3a"), ExtResource("19_dgi5k"), ExtResource("20_j8jky"), ExtResource("16_tel4y"), ExtResource("7_0ld40"), ExtResource("12_2wyq8"), ExtResource("5_trceg"), ExtResource("6_jbj1t"), ExtResource("17_pibwh"), ExtResource("15_fv21b"), ExtResource("13_vxglm"), ExtResource("14_yq6so"), ExtResource("21_j8jky"), ExtResource("18_qkpxi"), ExtResource("11_og1vs"), ExtResource("24_5poiv")])
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=2125474194]
 
