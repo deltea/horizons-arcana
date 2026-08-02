@@ -1,13 +1,15 @@
 [gd_resource type="Resource" script_class="ItemResource" format=3 uid="uid://ctc2ia6blh14s"]
 
-[ext_resource type="Texture2D" uid="uid://bqnrfoxswav16" path="res://assets/images/prizes/anson.png" id="1_yan6q"]
-[ext_resource type="Script" uid="uid://cyf51v3ywt1uc" path="res://item_resource.gd" id="2_d3utt"]
+[ext_resource type="Resource" uid="uid://p056xgxg2i55" path="res://resources/arcana.tres" id="1_xbca2"]
+[ext_resource type="Texture2D" uid="uid://bqnrfoxswav16" path="res://assets/images/prizes/anson.png" id="2_y3rlc"]
+[ext_resource type="Script" uid="uid://cyf51v3ywt1uc" path="res://item_resource.gd" id="3_qwabj"]
 
 [resource]
-script = ExtResource("2_d3utt")
+script = ExtResource("3_qwabj")
 item_name = "Anson"
 item_desc = "horizons arcana org"
 item_price = 175
 item_rarity = 1
-item_texture = ExtResource("1_yan6q")
+item_texture = ExtResource("2_y3rlc")
+item_series = ExtResource("1_xbca2")
 metadata/_custom_type_script = "uid://cyf51v3ywt1uc"

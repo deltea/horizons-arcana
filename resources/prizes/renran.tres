@@ -1,13 +1,15 @@
 [gd_resource type="Resource" script_class="ItemResource" format=3 uid="uid://dr0v5r1vpf605"]
 
-[ext_resource type="Texture2D" uid="uid://drwtb8k86gurc" path="res://assets/images/prizes/renran.png" id="1_u2lra"]
-[ext_resource type="Script" uid="uid://cyf51v3ywt1uc" path="res://item_resource.gd" id="2_rp6bx"]
+[ext_resource type="Resource" uid="uid://p056xgxg2i55" path="res://resources/arcana.tres" id="1_fhebs"]
+[ext_resource type="Texture2D" uid="uid://drwtb8k86gurc" path="res://assets/images/prizes/renran.png" id="2_lfclm"]
+[ext_resource type="Script" uid="uid://cyf51v3ywt1uc" path="res://item_resource.gd" id="3_bp80f"]
 
 [resource]
-script = ExtResource("2_rp6bx")
+script = ExtResource("3_bp80f")
 item_name = "Renran"
 item_desc = "horizons arcana org"
 item_price = 175
 item_rarity = 1
-item_texture = ExtResource("1_u2lra")
+item_texture = ExtResource("2_lfclm")
+item_series = ExtResource("1_fhebs")
 metadata/_custom_type_script = "uid://cyf51v3ywt1uc"

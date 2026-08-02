@@ -1,13 +1,15 @@
 [gd_resource type="Resource" script_class="ItemResource" format=3 uid="uid://ctb6wa35wnd2n"]
 
-[ext_resource type="Texture2D" uid="uid://bo8ubhwednfa5" path="res://assets/images/prizes/daamin.png" id="1_3cooy"]
-[ext_resource type="Script" uid="uid://cyf51v3ywt1uc" path="res://item_resource.gd" id="2_w4ydb"]
+[ext_resource type="Resource" uid="uid://p056xgxg2i55" path="res://resources/arcana.tres" id="1_hgy3e"]
+[ext_resource type="Texture2D" uid="uid://bo8ubhwednfa5" path="res://assets/images/prizes/daamin.png" id="2_matdy"]
+[ext_resource type="Script" uid="uid://cyf51v3ywt1uc" path="res://item_resource.gd" id="3_tu8mk"]
 
 [resource]
-script = ExtResource("2_w4ydb")
+script = ExtResource("3_tu8mk")
 item_name = "Daamin"
 item_desc = "horizons arcana org"
 item_price = 175
 item_rarity = 1
-item_texture = ExtResource("1_3cooy")
+item_texture = ExtResource("2_matdy")
+item_series = ExtResource("1_hgy3e")
 metadata/_custom_type_script = "uid://cyf51v3ywt1uc"

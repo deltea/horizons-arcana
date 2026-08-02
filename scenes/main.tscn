@@ -8,20 +8,35 @@
 [ext_resource type="Material" uid="uid://de18xmp3o6jut" path="res://assets/materials/wall.tres" id="4_tbgi4"]
 [ext_resource type="Material" uid="uid://d4mrdmri74nmp" path="res://assets/materials/floor.tres" id="4_tipki"]
 [ext_resource type="Material" uid="uid://ylfa2srkv5kf" path="res://assets/materials/big_floor.tres" id="5_85g3d"]
+[ext_resource type="Resource" uid="uid://bn1d4i18srwcl" path="res://resources/prizes/labubu.tres" id="5_trceg"]
+[ext_resource type="Resource" uid="uid://fl6vtvtaao8b" path="res://resources/prizes/minion.tres" id="6_jbj1t"]
 [ext_resource type="Texture2D" uid="uid://1q8prk7qtv7t" path="res://assets/images/spotlight.png" id="6_jkv2x"]
 [ext_resource type="Texture2D" uid="uid://b8gposvfvdm7t" path="res://assets/images/trash.png" id="6_pm3ni"]
 [ext_resource type="Resource" uid="uid://bew6q40vxclpn" path="res://resources/prizes/goop.tres" id="7_0ld40"]
 [ext_resource type="Texture2D" uid="uid://bjl0lc5bw5nxj" path="res://assets/images/plant.png" id="7_tipki"]
 [ext_resource type="Texture2D" uid="uid://dfh666gpco7sq" path="res://assets/images/hand_open.png" id="9_85g3d"]
+[ext_resource type="Resource" uid="uid://b5sjeh3x2gt5f" path="res://resources/prizes/annabel.tres" id="9_fuf3a"]
 [ext_resource type="Texture2D" uid="uid://d4gs6u2dy3l4a" path="res://assets/images/ui/heart.png" id="9_gqmmt"]
 [ext_resource type="Texture2D" uid="uid://n58ut4aw14ru" path="res://assets/images/ui/skull.png" id="10_yc10j"]
+[ext_resource type="Resource" uid="uid://djrasop0x71ch" path="res://resources/prizes/triple_t.tres" id="11_og1vs"]
 [ext_resource type="Texture2D" uid="uid://ctt0pg8nfuqwp" path="res://assets/images/ui/money.png" id="11_pm3ni"]
+[ext_resource type="Resource" uid="uid://cgquggvven5fv" path="res://resources/prizes/hornet.tres" id="12_2wyq8"]
 [ext_resource type="FontFile" uid="uid://bqi6ej1jr02nq" path="res://assets/fonts/OptimusPrinceps.ttf" id="12_y6deb"]
 [ext_resource type="Texture2D" uid="uid://c5wwo58wpibha" path="res://assets/images/trash_can.png" id="13_a8y0u"]
 [ext_resource type="PackedScene" uid="uid://b5x6g0xfspjy" path="res://scenes/calendar/calendar.tscn" id="13_trceg"]
+[ext_resource type="Resource" uid="uid://p3x1vb673uqt" path="res://resources/prizes/polyester_spiderman.tres" id="13_vxglm"]
 [ext_resource type="Texture2D" uid="uid://b4bobwh4pvrvi" path="res://assets/images/trash_can_lid.png" id="14_a8y0u"]
+[ext_resource type="Resource" uid="uid://k1g1nvy0mnba" path="res://resources/prizes/raspi_5.tres" id="14_yq6so"]
+[ext_resource type="Resource" uid="uid://cqmngunwcsg7y" path="res://resources/prizes/netanyahu.tres" id="15_fv21b"]
+[ext_resource type="Resource" uid="uid://dko3ply64k71b" path="res://resources/prizes/glitter.tres" id="16_tel4y"]
 [ext_resource type="PackedScene" uid="uid://b6iotncvwmytl" path="res://assets/models/board.blend" id="17_muem4"]
+[ext_resource type="Resource" uid="uid://dfc60yx7sa5rp" path="res://resources/prizes/moondust.tres" id="17_pibwh"]
+[ext_resource type="Resource" uid="uid://bf4bca6rwcr71" path="res://resources/prizes/2016.tres" id="17_qkpxi"]
 [ext_resource type="Texture2D" uid="uid://ck0gpe2ikufce" path="res://assets/images/graph.png" id="18_dp3eg"]
+[ext_resource type="Resource" uid="uid://l3nwcs8ke3ur" path="res://resources/prizes/shawarma.tres" id="18_qkpxi"]
+[ext_resource type="Resource" uid="uid://ctc2ia6blh14s" path="res://resources/prizes/anson.tres" id="19_dgi5k"]
+[ext_resource type="Resource" uid="uid://ctb6wa35wnd2n" path="res://resources/prizes/daamin.tres" id="20_j8jky"]
+[ext_resource type="Resource" uid="uid://dr0v5r1vpf605" path="res://resources/prizes/renran.tres" id="21_j8jky"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0ld40"]
 corner_detail = 1
@@ -97,7 +112,7 @@ hand_closed_texture = ExtResource("3_choun")
 phase_cashed_out_texture = ExtResource("11_pm3ni")
 phase_exploded_texture = ExtResource("10_yc10j")
 phase_trashed_texture = ExtResource("6_pm3ni")
-item_pool = Array[ExtResource("4_eb6dy")]([ExtResource("7_0ld40")])
+item_pool = Array[ExtResource("4_eb6dy")]([ExtResource("17_qkpxi"), ExtResource("9_fuf3a"), ExtResource("19_dgi5k"), ExtResource("20_j8jky"), ExtResource("16_tel4y"), ExtResource("7_0ld40"), ExtResource("12_2wyq8"), ExtResource("5_trceg"), ExtResource("6_jbj1t"), ExtResource("17_pibwh"), ExtResource("15_fv21b"), ExtResource("13_vxglm"), ExtResource("14_yq6so"), ExtResource("21_j8jky"), ExtResource("18_qkpxi"), ExtResource("11_og1vs")])
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=2125474194]
 

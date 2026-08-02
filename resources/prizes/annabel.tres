@@ -1,13 +1,15 @@
 [gd_resource type="Resource" script_class="ItemResource" format=3 uid="uid://b5sjeh3x2gt5f"]
 
-[ext_resource type="Texture2D" uid="uid://bo8ubhwednfa5" path="res://assets/images/prizes/daamin.png" id="1_fdupi"]
-[ext_resource type="Script" uid="uid://cyf51v3ywt1uc" path="res://item_resource.gd" id="2_1cbco"]
+[ext_resource type="Resource" uid="uid://p056xgxg2i55" path="res://resources/arcana.tres" id="1_2el7c"]
+[ext_resource type="Texture2D" uid="uid://cju8rqt52fsft" path="res://assets/images/prizes/annabel.png" id="2_2el7c"]
+[ext_resource type="Script" uid="uid://cyf51v3ywt1uc" path="res://item_resource.gd" id="3_uojq8"]
 
 [resource]
-script = ExtResource("2_1cbco")
+script = ExtResource("3_uojq8")
 item_name = "Annabel"
 item_desc = "horizons arcana org"
 item_price = 175
 item_rarity = 1
-item_texture = ExtResource("1_fdupi")
+item_texture = ExtResource("2_2el7c")
+item_series = ExtResource("1_2el7c")
 metadata/_custom_type_script = "uid://cyf51v3ywt1uc"
