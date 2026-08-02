@@ -39,7 +39,8 @@ const alert_label_scene = preload("res://scenes/ui/alert_label.tscn")
 @onready var hearts_container: HBoxContainer = $CanvasLayer/HeartsContainer
 @onready var flashbang: ColorRect = $CanvasLayer/Flashbang
 @onready var phase_container: VBoxContainer = $CanvasLayer/PhaseContainer
-@onready var timer_progress_bar: ProgressBar = $CanvasLayer/ProgressBar
+@onready var timer_progress_bar: TextureProgressBar = $CanvasLayer/ProgressBar
+@onready var timer_label: Label = $CanvasLayer/ProgressBar/TimeLabel
 
 @onready var timer: Timer = $Timer
 
@@ -79,6 +80,7 @@ func _process(dt: float) -> void:
 		child.scale = sin(Clock.time * 5.0) * 0.05 * Vector2.ONE + Vector2.ONE
 
 	timer_progress_bar.value = timer.time_left / timer.wait_time
+	timer_label.text = str(int(timer.time_left))
 
 
 func next_day() -> void:
