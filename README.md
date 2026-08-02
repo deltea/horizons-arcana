@@ -1,4 +1,6 @@
-
+in this game, your job is to buy sketchy blind boxes from the black market, and resell them for (hopefully) a profit!
+this game is played with a physical blind box, that you can interact with
+shake the box to get more information about what's inside
 
 ## todo
 

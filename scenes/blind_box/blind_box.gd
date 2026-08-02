@@ -3,7 +3,7 @@ class_name BlindBox extends Node3D
 
 const LID_CLOSED_ROT = 90.0
 const LID_OPEN_ROT = -75.0
-const BOMB_CHANCE = 0.4
+const BOMB_CHANCE = 0.3
 
 @onready var box: MeshInstance3D = $box/Cube
 @onready var lid: MeshInstance3D = $box/Lid
