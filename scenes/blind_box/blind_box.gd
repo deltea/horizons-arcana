@@ -5,32 +5,29 @@ const LID_CLOSED_ROT = 90.0
 const LID_OPEN_ROT = -75.0
 const BOMB_CHANCE = 0.4
 
+@onready var box: MeshInstance3D = $box/Cube
 @onready var lid: MeshInstance3D = $box/Lid
 @onready var item: BlindBoxItem = $BlindBoxItem
+@onready var face: MeshInstance3D = $Face
 
 var has_bomb: bool = false
 var open_tween: Tween
 var item_resource: ItemResource
 var vibrate_tween: Tween
+var bomb_chance: float = BOMB_CHANCE
 
 
 func _ready() -> void:
 	Events.box_resolved.connect(_on_box_resolved)
-	Events.input_shake.connect(_on_input_shake)
 
 	has_bomb = randf() < BOMB_CHANCE
 	item.item_sprite.texture = item_resource.item_texture
 	item.item_resource = item_resource
 
-
-func _on_input_shake() -> void:
-	var rand = randf() > (0.3 if has_bomb else 0.7)
-	AudioManager.play_sound("tick" if rand else "squeak", 1.4)
-	# print("shake")
-	scale = Vector3.ONE * 1.5
-	if vibrate_tween: vibrate_tween.kill()
-	vibrate_tween = create_tween().set_trans(Tween.TRANS_EXPO).set_ease(Tween.EASE_OUT).set_parallel()
-	vibrate_tween.tween_property(self, "scale", Vector3.ONE, 0.5)
+	if item_resource.item_series:
+		change_box_color(item_resource.item_series.color)
+		change_box_face(item_resource.item_series.logo)
+		bomb_chance = item_resource.item_series.bomb_chance_override
 
 
 func toggle_open(is_open: bool) -> void:
@@ -72,6 +69,24 @@ func bump() -> void:
 
 func inspect() -> void:
 	print("ooh now you know more info")
+	var rand = randf() > (0.3 if has_bomb else 0.7)
+	AudioManager.play_sound("tick" if rand else "squeak", 1.4)
+	scale = Vector3.ONE * 1.5
+	if vibrate_tween: vibrate_tween.kill()
+	vibrate_tween = create_tween().set_trans(Tween.TRANS_EXPO).set_ease(Tween.EASE_OUT).set_parallel()
+	vibrate_tween.tween_property(self, "scale", Vector3.ONE, 0.5)
+
+
+func change_box_face(new_face: Texture2D) -> void:
+	face.material_override = face.get_surface_override_material(0).duplicate() as StandardMaterial3D
+	face.material_override.albedo_texture = new_face
+
+
+func change_box_color(new_color: Color) -> void:
+	box.material_override = box.mesh.surface_get_material(0).duplicate() as StandardMaterial3D
+	lid.material_override = lid.mesh.surface_get_material(0).duplicate() as StandardMaterial3D
+	box.material_override.albedo_color = new_color
+	lid.material_override.albedo_color = new_color
 
 
 func _on_box_resolved() -> void:

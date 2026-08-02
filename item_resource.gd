@@ -15,3 +15,4 @@ enum ItemRarity {
 @export var item_price: int = 100
 @export var item_rarity: ItemRarity = ItemRarity.COMMON
 @export var item_texture: Texture2D
+@export var item_series: ItemSeries

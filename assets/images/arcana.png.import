@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://brj4a0wcohg7"
-path="res://.godot/imported/lid.png-3b905e35df5e995067a55c7135975205.ctex"
+uid="uid://c318cjvqn0doc"
+path="res://.godot/imported/arcana.png-6ad3ee5bc90fcbae7c393269b159a616.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/textures/box/lid.png"
-dest_files=["res://.godot/imported/lid.png-3b905e35df5e995067a55c7135975205.ctex"]
+source_file="res://assets/images/arcana.png"
+dest_files=["res://.godot/imported/arcana.png-6ad3ee5bc90fcbae7c393269b159a616.ctex"]
 
 [params]
 

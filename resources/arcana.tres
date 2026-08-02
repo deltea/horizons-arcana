@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="ItemSeries" format=3 uid="uid://p056xgxg2i55"]
+
+[ext_resource type="Texture2D" uid="uid://c318cjvqn0doc" path="res://assets/images/arcana.png" id="1_6lgao"]
+[ext_resource type="Script" uid="uid://u3nagdcegp50" path="res://scripts/ItemSeries.gd" id="1_dakxh"]
+
+[resource]
+script = ExtResource("1_dakxh")
+color = Color(0.32941177, 0.78039217, 1, 1)
+logo = ExtResource("1_6lgao")
+metadata/_custom_type_script = "uid://u3nagdcegp50"

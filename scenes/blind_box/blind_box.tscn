@@ -3,6 +3,16 @@
 [ext_resource type="Script" uid="uid://c3cwv70jvfarx" path="res://scenes/blind_box/blind_box.gd" id="1_vip6x"]
 [ext_resource type="PackedScene" uid="uid://6js1mtx240ng" path="res://assets/models/box.blend" id="2_do4vy"]
 [ext_resource type="PackedScene" uid="uid://dig7hovvtb2yx" path="res://scenes/blind_box_item/blind_box_item.tscn" id="3_fmcyh"]
+[ext_resource type="Texture2D" uid="uid://c4jq6y3ko8av4" path="res://assets/images/face.png" id="4_n0bm6"]
+
+[sub_resource type="QuadMesh" id="QuadMesh_fmcyh"]
+size = Vector2(2, 2)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_n0bm6"]
+transparency = 1
+shading_mode = 0
+albedo_texture = ExtResource("4_n0bm6")
+texture_filter = 0
 
 [node name="BlindBox" type="Node3D" unique_id=1304684457]
 script = ExtResource("1_vip6x")
@@ -15,5 +25,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 
 [node name="Lid" parent="box" index="1" unique_id=2050709534]
 transform = Transform3D(-8.742278e-08, -1, 0, 1, -8.742278e-08, 0, 0, 0, 1, 1.0000001, 1, 0)
+
+[node name="Face" type="MeshInstance3D" parent="." unique_id=1984081414]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.0003365, 1.1)
+mesh = SubResource("QuadMesh_fmcyh")
+surface_material_override/0 = SubResource("StandardMaterial3D_n0bm6")
 
 [editable path="box"]
