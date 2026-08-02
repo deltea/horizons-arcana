@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="ItemResource" format=3 uid="uid://6nwby1utb06p"]
+
+[ext_resource type="Texture2D" uid="uid://clanb4v2kj6xg" path="res://assets/images/prizes/waffles.png" id="1_0kn7t"]
+[ext_resource type="Script" uid="uid://cyf51v3ywt1uc" path="res://item_resource.gd" id="2_equ8h"]
+
+[resource]
+script = ExtResource("2_equ8h")
+item_name = "Waffles"
+item_desc = "yummers"
+item_price = 175
+item_rarity = 1
+item_texture = ExtResource("1_0kn7t")
+metadata/_custom_type_script = "uid://cyf51v3ywt1uc"

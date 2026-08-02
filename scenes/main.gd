@@ -87,6 +87,7 @@ func next_day() -> void:
 	set_day(curr_day + 1)
 
 	boxes_left = randi_range(BOX_COUNT_MIN, BOX_COUNT_MAX)
+	timer.wait_time = 10.0 - (curr_day * 1.0)
 
 	# spend money to buy more boxes
 	if curr_day != 0:
