@@ -7,8 +7,8 @@ play a keyboard friendly version here:
 
 ## todo
 
-- [ ] inspection logic
-- [ ] start screen
+- [x] inspection logic
+- [x] start screen
 - [x] sfx and music
 - [x] trashed animation
 - [x] rarity logic
